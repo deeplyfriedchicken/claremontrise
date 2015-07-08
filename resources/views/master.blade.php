@@ -15,18 +15,15 @@
     <link href="{{ URL::asset('/assets/css/animate.css') }}" rel="stylesheet" media="screen">
     <link href="{{ URL::asset('/assets/css/style.css') }}" rel="stylesheet" media="screen">
 </head>
-<style>
-  .logo {
-    overflow: hidden;
-    text-align:center;
-    background : url(/assets/images/logo.png) center center no-repeat;
-    width: 160px;
-    height: 65px;
-    margin : 0 auto;
-  }
-</style>
+@yield('style')
 <body>
 
+  <div id="preloader">
+      <div id="status">
+        <div class="status-area"></div>
+      </div>
+  </div>
+  
 	<div class="layout">
 		<div class="container">
 			<div class="main">

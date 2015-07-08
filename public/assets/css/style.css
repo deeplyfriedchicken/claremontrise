@@ -117,8 +117,14 @@ p{
 
 /* Main
 -------------------------------------------------*/
-
-
+.logo {
+	overflow: hidden;
+	text-align:center;
+	background : url(/assets/images/logo.png) center center no-repeat;
+	width: 160px;
+	height: 65px;
+	margin : 0 auto;
+}
 
 .title{
 	font-family: 'Open Sans', sans-serif;
