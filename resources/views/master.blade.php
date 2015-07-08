@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Curtis - Coming Soon Page</title>
+    <title>@yield('title')</title>
 
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,700' rel='stylesheet' type='text/css'>
     <link href="{{ URL::asset('/assets/css/bootstrap.min.css') }}" rel="stylesheet" media="screen">
@@ -34,10 +34,10 @@
 
 					<div class="logo"></div>
 
-					<h1 class="title">We're coming soon</h1>
+					<h1 class="title">@yield('h1-title')</h1>
 
 					<div class="slogan">
-						Hello, welcome to Curtis. We will launch our website very soon.
+						@yield('slogan')
 					</div>
 
 					<div class="countdown-time animated fadeInUp" data-date="2016-01-01 00:00:00" data-timer="900"></div>
