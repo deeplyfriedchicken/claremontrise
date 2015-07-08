@@ -14,6 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/about', function() {
-  return "Hello";
-})
+Route::get('contact', function() {
+  return "Contact me";
+});
