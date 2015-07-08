@@ -10,16 +10,16 @@
     <title>Curtis - Coming Soon Page</title>
 
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,700' rel='stylesheet' type='text/css'>
-    <link href="{{ URL::asset('css/bootstrap.min.css') }}" rel="stylesheet" media="screen">
+    <link href="{{ URL::asset('/assets/css/bootstrap.min.css') }}" rel="stylesheet" media="screen">
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-    <link href="{{ URL::asset('css/animate.css') }}" rel="stylesheet" media="screen">
-    <link href="{{ URL::asset('css/style.css') }}" rel="stylesheet" media="screen">
+    <link href="{{ URL::asset('/assets/css/animate.css') }}" rel="stylesheet" media="screen">
+    <link href="{{ URL::asset('/assets/css/style.css') }}" rel="stylesheet" media="screen">
 </head>
 <style>
   .logo {
     overflow: hidden;
     text-align:center;
-    background : url(/images/logo.png) center center no-repeat;
+    background : url(/assets/images/logo.png) center center no-repeat;
     width: 160px;
     height: 65px;
     margin : 0 auto;
@@ -130,11 +130,11 @@
 		</div>
 	</div>
 
-   	<script type="text/javascript" src="{{ URL::asset('js/jquery-1.11.0.min.js') }}"></script>
-   	<script type="text/javascript" src="{{ URL::asset('js/bootstrap.min.js') }}"></script>
-   	<script type="text/javascript" src="{{ URL::asset('js/countdown.js') }}"></script>
-    <script type="text/javascript" src="{{ URL::asset('js/jquery.vegas.min.js') }}"></script>
-   	<script type="text/javascript" src="{{ URL::asset('js/scripts.js') }}"></script>
+   	<script type="text/javascript" src="{{ URL::asset('/assets/js/jquery-1.11.0.min.js') }}"></script>
+   	<script type="text/javascript" src="{{ URL::asset('/assets/js/bootstrap.min.js') }}"></script>
+   	<script type="text/javascript" src="{{ URL::asset('/assets/js/countdown.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('/assets/js/jquery.vegas.min.js') }}"></script>
+   	<script type="text/javascript" src="{{ URL::asset('/assets/js/scripts.js') }}"></script>
 </body>
 
 </html>
