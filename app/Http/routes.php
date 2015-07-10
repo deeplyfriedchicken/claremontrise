@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -15,5 +14,7 @@ Route::get('/', function () {
     return view('home');
 });
 Route::get('login', function () {
-  return "Login here!";
+ // $results = DB::select('select * from Dining_Hall_Food');
+ //return $results ;
+ return view('login');
 });
