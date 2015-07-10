@@ -32,24 +32,25 @@
   </style>
 @stop
 
+
 @section('h1-title', 'Welcome to Good Morning Claremont')
 
 @section('slogan')
-    You sign up, we send you stuff.
+    Be a part of someone else's morning.
 @stop
 
 @section('button')
 <div class="more-links">
-  <a href="#" data-modal="contact">Contact</a>
-  <a href="#" data-modal="subscribe">Subscribe</a>
+  <a href="#" data-modal="signup">Signup</a>
+  <a href="#" data-modal="login">Login</a>
 </div>
 <div class="more-links-go">
-  {!! Html::link('/login', 'Contributor', array(), false) !!}
+  {!! Html::link('/', 'Back', array(), false) !!}
 </div>
 @stop
 
 @section('popup')
-<div id="contact" class="new-modal">
+<div id="signup" class="new-modal">
   <div class="container">
     <div class="main">
 
@@ -58,29 +59,19 @@
       </div>
 
       <div class="title">
-        <h2>Contact</h2>
+        <h2>Signup</h2>
       </div>
       <div class="row">
       <div class="row">
         <div class="forms">
-          <form>
-            <div class="form-group">
-              <label class="sr-only" for="name">Name</label>
-              <input type="text" class="form-control" id="name" placeholder="Name" required="required">
-            </div>
-            <div class="form-group">
-              <label class="sr-only" for="email">Email</label>
-              <input type="email" class="form-control" id="email" placeholder="Email" required="required">
-            </div>
-            <div class="form-group">
-              <label class="sr-only" for="object">Email</label>
-              <input type="text" class="form-control" id="object" placeholder="Object" required="required">
-            </div>
-            <div class="form-group">
-              <textarea class="form-control" id="message" placeholder="Message" rows="3" required="required"></textarea>
-            </div>
-            <button type="submit" class="btn btn-lg btn-default">SEND</button>
-          </form>
+          {!! Form::open() !!}
+          <div class="form-group">
+            {!! Form::text('name', null, ['class' => 'form-control', 'id' => 'contr-name', 'placeholder' => 'Name']) !!}
+            {!! Form::email('email', null, ['class' => 'form-control', 'id' => 'contr-email', 'placeholder' => 'Email Address']) !!}
+            {!! Form::password('password', ['class' => 'form-control', 'id' => 'contr-password', 'placeholder' => 'Password']) !!}
+            {!! Form::submit('Create An Account', ['class' => 'btn btn-lg btn-default']) !!}
+          </div>
+          {!! Form:: close() !!}
         </div>
       </div>
       </div>
@@ -90,7 +81,7 @@
   </div>
 </div>
 
-<div id="subscribe" class="new-modal">
+<div id="login" class="new-modal">
   <div class="container">
     <div class="main">
 
@@ -99,7 +90,7 @@
       </div>
 
       <div class="title">
-        <h2>Subscribe</h2>
+        <h2>login</h2>
       </div>
 
       <div class="slogan">
@@ -107,12 +98,15 @@
       </div>
 
       <div class="forms">
-        <form>
           <div class="form-group">
-            <input type="email" class="form-control" id="subscribe-email" placeholder="Email address" required="required">
-            <button class="btn btn-lg btn-default" type="submit">Subscribe</button>
+            {!! Form::open() !!}
+            <div class="form-group">
+              {!! Form::email('email', null, ['class' => 'form-control', 'id' => 'subscribe-email', 'placeholder' => 'Email Address']) !!}
+              {!! Form::password('password', ['class' => 'form-control', 'id' => 'contr-password', 'placeholder' => 'Password']) !!}
+              {!! Form::submit('Login', ['class' => 'btn btn-lg btn-default']) !!}
+            </div>
+            {!! Form:: close() !!}
           </div>
-        </form>
       </div>
 
     </div>
