@@ -13,8 +13,11 @@
 Route::get('/', function () {
     return view('home');
 });
-Route::get('login', function () {
- // $results = DB::select('select * from Dining_Hall_Food');
- //return $results ;
- return view('login');
+Route::post('/', function() {
+  $data = Input::all();
+  var_dump($data);
+});
+
+Route::get('/login', function() {
+  return view('login');
 });

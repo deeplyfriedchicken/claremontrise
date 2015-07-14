@@ -1,6 +1,6 @@
 @extends('master')
 
-@section('title', 'Good Morning Claremont')
+@section('title', 'Claremont Rise')
 
 @section('style')
   <style>
@@ -33,10 +33,10 @@
 @stop
 
 
-@section('h1-title', 'Welcome to Good Morning Claremont')
+@section('h1-title', 'Welcome To Claremont Rise.')
 
 @section('slogan')
-    Be a part of someone else's morning.
+    Rise to a better tomorrow.
 @stop
 
 @section('button')
@@ -44,9 +44,9 @@
   <a href="#" data-modal="signup">Signup</a>
   <a href="#" data-modal="login">Login</a>
 </div>
-<div class="more-links-go">
+{{-- <div class="more-links-go">
   {!! Html::link('/', 'Back', array(), false) !!}
-</div>
+</div> --}}
 @stop
 
 @section('popup')

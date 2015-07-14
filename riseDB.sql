@@ -7,6 +7,8 @@ SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
+GRANT ALL ON good_morning_claremont.* TO 'gmc'@'localhost' IDENTIFIED BY 'summer2015';
+
 -- -----------------------------------------------------
 -- Schema good_morning_claremont
 -- -----------------------------------------------------

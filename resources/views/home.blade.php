@@ -1,6 +1,6 @@
 @extends('master')
 
-@section('title', 'Good Morning Claremont')
+@section('title', 'Claremont Rise')
 
 @section('style')
   <style>
@@ -32,7 +32,7 @@
   </style>
 @stop
 
-@section('h1-title', 'Welcome to Good Morning Claremont')
+@section('h1-title', 'Welcome to Claremont Rise.')
 
 @section('slogan')
     You sign up, we send you stuff.
@@ -43,9 +43,9 @@
   <a href="#" data-modal="contact">Contact</a>
   <a href="#" data-modal="subscribe">Subscribe</a>
 </div>
-<div class="more-links-go">
+{{-- <div class="more-links-go">
   {!! Html::link('/login', 'Contributor', array(), false) !!}
-</div>
+</div> --}}
 @stop
 
 @section('popup')
@@ -107,12 +107,14 @@
       </div>
 
       <div class="forms">
-        <form>
           <div class="form-group">
-            <input type="email" class="form-control" id="subscribe-email" placeholder="Email address" required="required">
-            <button class="btn btn-lg btn-default" type="submit">Subscribe</button>
+            {!! Form::open() !!}
+            <div class="form-group">
+              {!! Form::email('email', null, ['class' => 'form-control', 'id' => 'subscribe-email', 'placeholder' => 'Email Address']) !!}
+              {!! Form::submit('Login', ['class' => 'btn btn-lg btn-default']) !!}
+            </div>
+            {!! Form:: close() !!}
           </div>
-        </form>
       </div>
 
     </div>
