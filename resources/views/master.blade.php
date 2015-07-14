@@ -8,8 +8,9 @@
     <meta name="author" content="">
 
     <title>@yield('title')</title>
-
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,700' rel='stylesheet' type='text/css'>
+    
+    <link rel="shortcut icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+	  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,700' rel='stylesheet' type='text/css'>
     <link href="{{ URL::asset('/assets/css/bootstrap.min.css') }}" rel="stylesheet" media="screen">
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
     <link href="{{ URL::asset('/assets/css/animate.css') }}" rel="stylesheet" media="screen">
