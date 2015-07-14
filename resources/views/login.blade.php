@@ -4,7 +4,7 @@
 
 @section('style')
   <style>
-  @media screen {
+  /*@media screen {
     .more-links-go {
       margin-bottom: 40px;
       text-align: center;
@@ -28,7 +28,7 @@
       -ms-transition: all 0.5s ease-in-out;
       -o-transition: all 0.5s ease-in-out;
     }
-  }
+  }*/
   </style>
 @stop
 
