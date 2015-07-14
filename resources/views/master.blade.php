@@ -15,6 +15,7 @@
     <link href="{{ URL::asset('/assets/css/animate.css') }}" rel="stylesheet" media="screen">
     <link href="{{ URL::asset('/assets/css/style.css') }}" rel="stylesheet" media="screen">
 </head>
+<style></style>
 @yield('style')
 <body>
 
@@ -28,8 +29,9 @@
 		<div class="container">
 			<div class="main">
 				<div class="overlay">
-
-					<div class="logo"></div>
+          <div class="pagination-centered">
+            <div class="logo"></div>
+          </div>
 
 					<h1 class="title">@yield('h1-title')</h1>
 
