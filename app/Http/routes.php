@@ -13,13 +13,7 @@
 Route::get('/', function () {
     return view('home');
 });
-Route::post('/', function() {
-  $data = Input::all();
-  $subscriber = App\Subscribers::create(['email' => $data['email'], 'college' => $data['college']]);
-  $subscriber->save();
-  Session::flash('email', $data['email']);
-  return view('home');
-});
+Route::post('/', 'SubscriberController@store');
 
 Route::get('/login', function() {
   return view('login');
