@@ -32,7 +32,14 @@
   </style>
 @stop
 
-@section('h1-title', 'Welcome to Claremont Rise.')
+@if(Session::has('email'))
+  @section('h1-title')
+    Welcome {{ Session::get('email') }} 
+  @stop
+@else
+  @section('h1-title', 'Welcome to Claremont Rise.')
+@endif
+
 
 @section('slogan')
     You sign up, we send you stuff.
@@ -111,6 +118,7 @@
             {!! Form::open() !!}
             <div class="form-group">
               {!! Form::email('email', null, ['class' => 'form-control', 'id' => 'subscribe-email', 'placeholder' => 'Email Address']) !!}
+              {!! Form::text('college', null, ['class' => 'form-control', 'id' => 'contr-college', 'placeholder' => 'College']) !!}
               {!! Form::submit('Login', ['class' => 'btn btn-lg btn-default']) !!}
             </div>
             {!! Form:: close() !!}

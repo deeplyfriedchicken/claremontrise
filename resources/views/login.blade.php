@@ -67,7 +67,9 @@
           {!! Form::open() !!}
           <div class="form-group">
             {!! Form::text('name', null, ['class' => 'form-control', 'id' => 'contr-name', 'placeholder' => 'Name']) !!}
+            {!! Form::text('username', null, ['class' => 'form-control', 'id' => 'contr-username', 'placeholder' => 'Username']) !!}
             {!! Form::email('email', null, ['class' => 'form-control', 'id' => 'contr-email', 'placeholder' => 'Email Address']) !!}
+            {!! Form::text('college', null, ['class' => 'form-control', 'id' => 'contr-college', 'placeholder' => 'College']) !!}
             {!! Form::password('password', ['class' => 'form-control', 'id' => 'contr-password', 'placeholder' => 'Password']) !!}
             {!! Form::submit('Create An Account', ['class' => 'btn btn-lg btn-default']) !!}
           </div>

@@ -15,9 +15,18 @@ Route::get('/', function () {
 });
 Route::post('/', function() {
   $data = Input::all();
-  var_dump($data);
+  $subscriber = App\Subscribers::create(['email' => $data['email'], 'college' => $data['college']]);
+  $subscriber->save();
+  Session::flash('email', $data['email']);
+  return view('home');
 });
 
 Route::get('/login', function() {
   return view('login');
+});
+Route::post('/login', function() {
+  $data = Input::all();
+  $user = App\User::create(['name' => $data['name'], 'college' => $data['college'], 'username' => $data['username'], 'email' => $data['email'], 'password' => $data['password']]);
+  echo $user;
+  $user->save();
 });
