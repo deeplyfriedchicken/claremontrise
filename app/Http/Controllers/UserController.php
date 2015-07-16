@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\CreateUserRequest;
 use App\User;
 
 use App\Http\Requests;
@@ -35,8 +36,10 @@ class UserController extends Controller
      *
      * @return Response
      */
-    public function store(Request $request)
+    public function store(CreateUserRequest $request)
     {
+        //validation
+
         $user = new User;
         $user->name = $request->input('name');
         $user->email = $request->input('email');

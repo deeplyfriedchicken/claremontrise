@@ -7,6 +7,7 @@ use App\Subscriber;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CreateSubscriberRequest;
 
 class SubscriberController extends Controller
 {
@@ -35,8 +36,9 @@ class SubscriberController extends Controller
      *
      * @return Response
      */
-    public function store(Request $request)
+    public function store(CreateSubscriberRequest $request)
     {
+
       $subscriber = new Subscriber;
       $subscriber->email = $request->input('email');
       $subscriber->college = $request->input('college');

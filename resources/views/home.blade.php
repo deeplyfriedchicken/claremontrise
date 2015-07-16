@@ -52,7 +52,7 @@
 @section('button')
 <div class="more-links">
   <a href="#" data-modal="contact">Contact</a>
-  <a href="#" data-modal="subscribe">Subscribe</a>
+  <a href="#" data-modal="subscribe" id="subscriber">Subscribe</a>
 </div>
 {{-- <div class="more-links-go">
   {!! Html::link('/login', 'Contributor', array(), false) !!}
@@ -119,6 +119,11 @@
 
       <div class="forms">
           <div class="form-group">
+            @if($errors->any())
+                @foreach ($errors->all() as $error)
+                  <p class="error">{{ $error }}</p>
+                @endforeach
+            @endif
             {!! Form::open() !!}
             <div class="form-group">
               {!! Form::email('email', null, ['class' => 'form-control', 'id' => 'subscribe-email', 'placeholder' => 'Email Address']) !!}
@@ -138,4 +143,15 @@
   $.vegas({
       src:'/assets/images/bg1.jpg'
   });
+@stop
+
+@section('error')
+  @if($errors->any())
+    <script>
+      $(document).ready(function() {
+       $("#subscriber").click();
+       console.log('hi');
+      });
+    </script>
+  @endif
 @stop

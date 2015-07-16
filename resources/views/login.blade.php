@@ -54,7 +54,7 @@
 
 @section('button')
 <div class="more-links">
-  <a href="#" data-modal="signup">Signup</a>
+  <a href="#" data-modal="signup" id="signup-error">Signup</a>
   <a href="#" data-modal="login">Login</a>
 </div>
 @stop
@@ -74,6 +74,11 @@
       <div class="row">
       <div class="row">
         <div class="forms">
+          @if($errors->any())
+              @foreach ($errors->all() as $error)
+                <p class="error">{{ $error }}</p>
+              @endforeach
+          @endif
           {!! Form::open() !!}
           <div class="form-group">
             {!! Form::text('name', null, ['class' => 'form-control', 'id' => 'contr-name', 'placeholder' => 'Name']) !!}
@@ -130,4 +135,15 @@
   $.vegas({
       src:'/assets/images/computer_notebook.jpg'
   });
+@stop
+
+@section('error')
+  @if($errors->any())
+    <script>
+      $(document).ready(function() {
+       $("#signup-error").click();
+       console.log('hi');
+      });
+    </script>
+  @endif
 @stop
