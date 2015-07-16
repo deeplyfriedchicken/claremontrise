@@ -11,5 +11,5 @@ class Subscribers extends Model
   protected $primaryKey = 'subscriber_id';
 
   protected $fillable = ['email', 'college', 'updated_at', 'created_at'];
-  
+
 }
