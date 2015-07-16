@@ -28,6 +28,7 @@
 
 	<div class="layout">
 		<div class="container">
+      <span class="pull-right navigate">@yield('navigate')</span>
 			<div class="main">
 				<div class="overlay">
           <div class="pagination-centered">
@@ -74,7 +75,7 @@
 
       ga('create', 'UA-65186134-1', 'auto');
       ga('send', 'pageview');
-      
+
     </script>
 </body>
 

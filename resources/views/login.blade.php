@@ -32,11 +32,20 @@
   </style>
 @stop
 
+@section('navigate')
+  <a class="button" href="/">Home</a>
+@stop
 
-@section('h1-title', 'Welcome To Claremont Rise.')
+@if(Session::has('username'))
+  @section('h1-title')
+    Welcome {{ Session::get('username') }}
+  @stop
+@else
+  @section('h1-title', 'Join Claremont Rise.')
+@endif
 
 @section('slogan')
-    Rise to a better tomorrow.
+    Contribute events, deadlines, or event an article.
 @stop
 
 @section('button')
@@ -44,9 +53,6 @@
   <a href="#" data-modal="signup">Signup</a>
   <a href="#" data-modal="login">Login</a>
 </div>
-{{-- <div class="more-links-go">
-  {!! Html::link('/', 'Back', array(), false) !!}
-</div> --}}
 @stop
 
 @section('popup')

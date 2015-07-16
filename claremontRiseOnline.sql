@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `college` VARCHAR(50) NOT NULL ,
   `username` VARCHAR(100) NOT NULL ,
   `email` VARCHAR(100) NOT NULL ,
-  `password` VARCHAR(200) NOT NULL ,
+  `password` VARCHAR(100) NOT NULL ,
   `created_at` DATETIME NOT NULL ,
   `updated_at` DATETIME NOT NULL ,
   `remember_token` VARCHAR(45) NULL ,

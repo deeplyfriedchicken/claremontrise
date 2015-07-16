@@ -32,9 +32,13 @@
   </style>
 @stop
 
+@section('navigate')
+  <a class="button" href="/login">Post</a>
+@stop
+
 @if(Session::has('email'))
   @section('h1-title')
-    Welcome {{ Session::get('email') }} 
+    Welcome {{ Session::get('email') }}
   @stop
 @else
   @section('h1-title', 'Welcome to Claremont Rise.')
