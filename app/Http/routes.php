@@ -24,11 +24,4 @@ Route::post('/', function() {
 Route::get('/login', function() {
   return view('login');
 });
-Route::post('/login', function() {
-  $data = Input::all();
-  $password = Hash::make('secret');
-  $user = App\User::create(['name' => $data['name'], 'college' => $data['college'], 'username' => $data['username'], 'email' => $data['email'], 'password' => $password]);
-  $user->save();
-  Session::flash('username', $data['username']);
-  return view('login');
-});
+Route::post('/login', 'UserController@store');
