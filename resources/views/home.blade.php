@@ -133,3 +133,9 @@
   </div>
 </div>
 @stop
+
+@section('background')
+  $.vegas({
+      src:'/assets/images/bg1.jpg'
+  });
+@stop

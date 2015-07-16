@@ -37,15 +37,19 @@
 @stop
 
 @if(Session::has('username'))
+
   @section('h1-title')
     Welcome {{ Session::get('username') }}
   @stop
+
 @else
+
   @section('h1-title', 'Join Claremont Rise.')
+
 @endif
 
 @section('slogan')
-    Contribute events, deadlines, or event an article.
+    Contribute events, deadlines, or even an article.
 @stop
 
 @section('button')
@@ -120,4 +124,10 @@
     </div>
   </div>
 </div>
+@stop
+
+@section('background')
+  $.vegas({
+      src:'/assets/images/computer_notebook.jpg'
+  });
 @stop
