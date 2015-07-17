@@ -8,6 +8,15 @@
       foreach($div1->find('div[class=site-content]') as $main) {
         foreach($main->find('article') as $article) {
           while($count < 1) { //only want the first article
+            $metaCount = 0;
+            foreach($article->find('div[class=entry-meta]') as $meta) {
+              if($metaCount == 1) {
+                foreach($meta->find('time') as $time) {
+                  echo $time; //date
+                }
+              }
+              $metaCount++;
+            }
             foreach($article->find('div[class=entry-content]') as $content) {
               $count2 = 0;
               foreach($content->find('p') as $p) {

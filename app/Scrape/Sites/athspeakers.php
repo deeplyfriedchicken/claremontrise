@@ -8,14 +8,14 @@
       $count = 0;
       foreach($speaker->find('td') as $column) {
         if($count == 0) {
-            echo "Date: ".$column->plaintext;
+            echo "Date: ".$column->plaintext; //date
             echo "<br>";
         }
         if($count == 1){
           foreach($column->find('b') as $person) {
-            echo $person;
+            echo $person; // speaker
           }
-          echo $column;
+          echo $column; //description
         }
         echo "<br>";
         $count++;

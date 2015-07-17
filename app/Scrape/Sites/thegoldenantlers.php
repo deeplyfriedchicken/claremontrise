@@ -6,6 +6,14 @@
   $count = 0; //get the first article
   foreach($html->find('article') as $e) {
     while($count < 1) { //while it still hasn't pulled the first article
+      echo $e->getAttribute('data-categoryslug');
+      foreach($e->find('div[class=post-image]') as $image) {
+        foreach($image->find('.info-date') as $date) {
+          foreach($date->find('time') as $time) {
+            echo $time->getAttribute('datetime');
+          }
+        }
+      }
       foreach($e->find('div[class=post-body]') as $div1) {
         foreach($div1->find('div[class=post-content]') as $div2) {
           foreach($div2->find('p') as $p) {
