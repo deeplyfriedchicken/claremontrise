@@ -10,12 +10,12 @@
         if($count == 0) {
           $clean = preg_replace('/\s+/', ' ', $column->plaintext); //clean it because it's messy af
           $timeArray = explode(',', $clean);
-          $dayWeek = $timeArray[0]; //day of week
-          echo $timeArray[1];
+          $dayWeek = substr($timeArray[0], 1); //day of week
           $monthDay = explode(' ', $timeArray[1]);
           $month = $monthDay[1]; //month
           $day = $monthDay[2]; //day
           $when = $monthDay[3]." ".$monthDay[4]; //optional not always filled
+          echo $day.$month.$dayWeek.$when;
           echo "<br>";
         }
         if($count == 1){

@@ -1,5 +1,6 @@
 <?php
   require 'CarbonRequire.php'; //require carbon so I don't have to require it again in every file
+  require 'decode.php';
   //this was the scraper function that we pulled off the web
 /**
  * Website: http://sourceforge.net/projects/simplehtmldom/
