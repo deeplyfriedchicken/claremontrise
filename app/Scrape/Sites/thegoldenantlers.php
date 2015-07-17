@@ -10,7 +10,11 @@
       foreach($e->find('div[class=post-image]') as $image) {
         foreach($image->find('.info-date') as $date) {
           foreach($date->find('time') as $time) {
-            echo $time->getAttribute('datetime');
+            $timeAll = explode(' ', $time->plaintext);
+            $month = $timeAll[0]; //month
+            $day = substr($timeAll[1], 0,2); //day
+            $year = $timeAll[2]; //year
+            echo $day.$month.$year;
           }
         }
       }

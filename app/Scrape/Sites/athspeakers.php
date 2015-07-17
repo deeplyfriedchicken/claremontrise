@@ -8,8 +8,15 @@
       $count = 0;
       foreach($speaker->find('td') as $column) {
         if($count == 0) {
-            echo "Date: ".$column->plaintext; //date
-            echo "<br>";
+          $clean = preg_replace('/\s+/', ' ', $column->plaintext); //clean it because it's messy af
+          $timeArray = explode(',', $clean);
+          $dayWeek = $timeArray[0]; //day of week
+          echo $timeArray[1];
+          $monthDay = explode(' ', $timeArray[1]);
+          $month = $monthDay[1]; //month
+          $day = $monthDay[2]; //day
+          $when = $monthDay[3]." ".$monthDay[4]; //optional not always filled
+          echo "<br>";
         }
         if($count == 1){
           foreach($column->find('b') as $person) {

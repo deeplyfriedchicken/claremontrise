@@ -12,7 +12,7 @@
             foreach($article->find('div[class=entry-meta]') as $meta) {
               if($metaCount == 1) {
                 foreach($meta->find('time') as $time) {
-                  echo $time; //date
+                  $dateTime = $time->getAttribute('datetime'); //use this ***********
                 }
               }
               $metaCount++;
