@@ -15,7 +15,8 @@
 
   foreach($daterange as $date){
     $post_date = $date->format("Y-m-d"); //mysql DATE format
-    $query = "INSERT INTO email_articles (post_date, file_directory, created_at, updated_at) VALUES ( '$post_date', 'not set', '$now', '$now')";
+    $query = "INSERT INTO email_articles (post_date, file_directory, created_at, updated_at)
+    VALUES ( '$post_date', 'not set', '$now', '$now')";
     $db->query($query);
     echo $db->error;
     echo "entry for ".$date->format("Y-m-d")." added!".$db->insert_id;
