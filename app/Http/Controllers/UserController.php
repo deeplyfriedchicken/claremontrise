@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\CreateUserRequest;
 use App\User;
+use Hash;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -44,7 +45,8 @@ class UserController extends Controller
         $user->name = $request->input('name');
         $user->email = $request->input('email');
         $user->username = $request->input('username');
-        $user->password = $request->input('password');
+        $password = Hash::make($request->input('password'));
+        $user->password = $password;
         $user->college = $request->input('college');
         $user->save();
         $request->session()->flash('username', $user->username);
