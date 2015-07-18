@@ -24,7 +24,8 @@
           $src = clean($img->getAttribute('src')); //img src
         }
       }
-      $title = clean(decode($event->plaintext)); //title
+      $title = decode($event->first_child()->plaintext); //title
+      echo $title;
       echo "<br>";
       foreach($event->find('a') as $link) {
           $url = 'http://www.cmc.edu'.$link->href; //link

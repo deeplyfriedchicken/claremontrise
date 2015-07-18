@@ -7,7 +7,7 @@
 
   $now = date("Y-m-d H:i:s"); //proper created_at / updated_at mysql format
 
-  $begin = new DateTime( '2015-06-01' );
+  $begin = new DateTime( '2015-05-01' );
   $end = new DateTime( '2016-05-14' );
   $end = $end->modify( '+1 day' );
   $interval = new DateInterval( 'P1D' );

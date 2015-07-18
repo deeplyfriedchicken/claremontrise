@@ -43,7 +43,7 @@
       foreach($e->find('div[class=post-body]') as $div1) {
         foreach($div1->find('div[class=post-content]') as $div2) {
           foreach($div2->find('p') as $p) {
-            $description = substr(clean(decode($p->plaintext)), 0, 200); //description needed to decode then remove htmlentities
+            $description = substr(clean(decode($p->plaintext)), 0, 1000); //description needed to decode then remove htmlentities
           }
         }
       }
