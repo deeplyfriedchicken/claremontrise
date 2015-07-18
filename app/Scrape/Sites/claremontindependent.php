@@ -21,7 +21,7 @@
               $count2 = 0;
               foreach($content->find('p') as $p) {
                 while($count2 < 1) {
-                  echo $p; //description
+                  echo htmlentities( $p->innertext, ENT_QUOTES | ENT_SUBSTITUTE, "UTF-8" ); //description
                   $count2++;
                 }
               }

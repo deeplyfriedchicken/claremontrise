@@ -59,6 +59,7 @@ CREATE TABLE IF NOT EXISTS `events` (
   `time2` DATETIME NULL ,
   `title` VARCHAR(200) NOT NULL ,
   `url` VARCHAR(1000) NOT NULL ,
+  `imgUrl` VARCHAR(500) NULL ,
   `type` VARCHAR(100) NOT NULL ,
   `created_at` DATETIME NOT NULL ,
   `updated_at` DATETIME NOT NULL ,
@@ -233,6 +234,24 @@ CREATE TABLE IF NOT EXISTS `api_keys` (
   PRIMARY KEY (`api_id`)  )
 ENGINE = InnoDB;
 
+-- -----------------------------------------------------
+-- Table `posts`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `posts` ;
+
+CREATE TABLE IF NOT EXISTS `posts` (
+  `post_id` INT NOT NULL AUTO_INCREMENT ,
+  `article_id` INT NOT NULL ,
+  `author` VARCHAR(100) NOT NULL ,
+  `title` VARCHAR(100) NOT NULL ,
+  `description` VARCHAR(200) NOT NULL ,
+  `imgUrl` VARCHAR(300) NOT NULL ,
+  `url` VARCHAR(500) NOT NULL ,
+  `source` VARCHAR(50) NOT NULL ,
+  `created_at` DATETIME NOT NULL ,
+  `updated_at` DATETIME NOT NULL ,
+  PRIMARY KEY (`post_id`)  )
+ENGINE = InnoDB;
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
