@@ -205,21 +205,15 @@ DROP TABLE IF EXISTS `weather` ;
 CREATE TABLE IF NOT EXISTS `weather` (
   `weather_id` INT NOT NULL AUTO_INCREMENT ,
   `article_id` INT NOT NULL ,
-  `icon_today` VARCHAR(50) NOT NULL ,
-  `morning_temp` INT(10) NOT NULL ,
+  `icon_today` VARCHAR(25) NOT NULL ,
+  `current_temp` INT(10) NOT NULL ,
   `day_max` INT(10) NOT NULL ,
   `day_min` INT(10) NOT NULL ,
-  `next_day_max` INT(10) NOT NULL ,
-  `next_day_min` INT(10) NOT NULL ,
-  `icon_nextday` VARCHAR(50) NOT NULL ,
-  `next_day2_max` INT(10) NOT NULL ,
-  `next_day2_min` INT(10) NOT NULL ,
-  `icon_day2` VARCHAR(50) NOT NULL ,
-  `next_day3_max` INT(10) NOT NULL ,
-  `next_day3_min` INT(10) NOT NULL ,
-  `icon_day3` VARCHAR(50) NOT NULL ,
-  PRIMARY KEY (`weather_id`)  )
+  `created_at` DATETIME NOT NULL ,
+  `updated_at` DATETIME NOT NULL ,
+  PRIMARY KEY (`weather_id`) )
 ENGINE = InnoDB;
+
 
 
 -- -----------------------------------------------------

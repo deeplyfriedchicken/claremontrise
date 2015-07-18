@@ -53,23 +53,23 @@
         }
       }
     }
-    // if(doesArticleExist($title, $date, $db) == 'none') {
-    //   $query = "INSERT INTO posts (article_id, author, title, description, imgUrl, url, source, created_at, updated_at)
-    //    VALUES ((SELECT article_id FROM email_articles WHERE post_date = '$date'), '$author',
-    //    '$title', '$description', '$imgUrl', '$url', 'The Forum',
-    //    '$now', '$now' )";
-    //   $res = $db->query($query);
-    //   if($res) {
-    //     echo "Stored! ".$db->insert_id;
-    //   }
-    //   else {
-    //     die($db->error);
-    //   }
-    // }
-    // else {
-    //   echo $title." entry already exists";
-    //   echo "<br>";
-    // }
+    if(doesArticleExist($title, $date, $db) == 'none') {
+      $query = "INSERT INTO posts (article_id, author, title, description, imgUrl, url, source, created_at, updated_at)
+       VALUES ((SELECT article_id FROM email_articles WHERE post_date = '$date'), '$author',
+       '$title', '$description', '$imgUrl', '$url', 'The Forum',
+       '$now', '$now' )";
+      $res = $db->query($query);
+      if($res) {
+        echo "Stored! ".$db->insert_id;
+      }
+      else {
+        die($db->error);
+      }
+    }
+    else {
+      echo $title." entry already exists";
+      echo "<br>";
+    }
   }
 
   //no description is available on front page. Maybe use url and create another scraper that pulls first paragraph as description?
