@@ -2,6 +2,7 @@
 include('lib/forecast.io.php');
 require '../database.php';
 require '../CarbonRequire.php';
+require 'apiWeatherKey.php';
 
 function doesWeatherExist($date, $db)
 {
@@ -23,7 +24,7 @@ $now = date("Y-m-d H:i:s"); //proper created_at / updated_at mysql format
 $today = date("Y-m-d");
 $db = connect();
 
-$api_key = 'f20be30c718648cfcb5c5b6b8a513c40';
+$api_key = returnApiKey();
 
 $latitude = '34.101655';
 $longitude = '-117.707591';
@@ -94,7 +95,7 @@ foreach($conditions_week as $conditions) {
         $icon = "wi-day-cloudy";
         break;
     }
-    if(doesWeatherExist($date, $db) == 'none') {
+    if(doesWeatherExist($date, $db) == 'none') { //weather needs to be updated given the way I'm processing it...
       if($count != 0) {
         $current_temp = 0;
       }
