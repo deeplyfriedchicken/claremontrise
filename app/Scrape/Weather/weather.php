@@ -1,7 +1,7 @@
 <?php
 include('lib/forecast.io.php');
 require '../database.php';
-require '../CarbonRequire.php';
+require '../CarbonRequire.php'; //set location time
 require 'apiWeatherKey.php';
 
 function doesWeatherExist($date, $db)
