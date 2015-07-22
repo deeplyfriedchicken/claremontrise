@@ -35,14 +35,19 @@ class WeatherController extends Controller
       $min = $weather->daily->data[0]->temperatureMin;
       $icon = $weather->daily->data[0]->icon;
 
-      $entry = new Weather;
-      $entry->article_id = $id;
-      $entry->icon = $icon;
-      $entry->current_temp = $current;
-      $entry->max = $max;
-      $entry->min = $min;
-      $entry->save();
-      echo "Stored!";
+      if (Weather::where('article_id', '=', $id)->exists()) {
+        echo "weather for ".$date." already exists";
+      }
+      else {
+        $entry = new Weather;
+        $entry->article_id = $id;
+        $entry->icon = $icon;
+        $entry->current_temp = $current;
+        $entry->max = $max;
+        $entry->min = $min;
+        $entry->save();
+        echo "Stored ".$date."!";
+      }
     }
     public function index()
     {
