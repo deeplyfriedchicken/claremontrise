@@ -114,6 +114,17 @@ class Event
     public function __construct($command)
     {
         $this->command = $command;
+        $this->output = $this->getDefaultOutput();
+    }
+
+    /**
+     * Get the default output depending on the OS.
+     *
+     * @return string
+     */
+    protected function getDefaultOutput()
+    {
+        return (strpos(strtoupper(PHP_OS), 'WIN') === 0) ? 'NUL' : '/dev/null';
     }
 
     /**
@@ -343,11 +354,16 @@ class Event
     /**
      * Schedule the event to run twice daily.
      *
+     * @param  int  $first
+     * @param  int  $second
      * @return $this
      */
-    public function twiceDaily()
+    public function twiceDaily($first = 1, $second = 13)
     {
-        return $this->cron('0 1,13 * * * *');
+        $hours = $first.','.$second;
+
+        return $this->spliceIntoPosition(1, 0)
+                    ->spliceIntoPosition(2, $hours);
     }
 
     /**
@@ -641,7 +657,7 @@ class Event
      */
     public function emailOutputTo($addresses)
     {
-        if (is_null($this->output) || $this->output == '/dev/null') {
+        if (is_null($this->output) || $this->output == $this->getDefaultOutput()) {
             throw new LogicException('Must direct output to a file in order to e-mail results.');
         }
 

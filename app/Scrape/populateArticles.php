@@ -13,7 +13,7 @@
   $interval = new DateInterval( 'P1D' );
   $daterange = new DatePeriod( $begin , $interval , $end );
 
-  foreach($daterange as $date){
+  foreach($daterange as $date) {
     $post_date = $date->format("Y-m-d"); //mysql DATE format
     $query = "INSERT INTO email_articles (post_date, file_directory, created_at, updated_at)
     VALUES ( '$post_date', 'not set', '$now', '$now')";

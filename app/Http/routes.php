@@ -19,3 +19,15 @@ Route::get('/login', function() {
   return view('login');
 });
 Route::post('/login', 'UserController@store');
+
+Route::get('/cmcevents', 'CollegeNewsAndEventsController@scrapeCmcEvents');
+Route::get('/cmcnews', 'CollegeNewsAndEventsController@scrapeCmcNews');
+Route::get('/posts/forum', 'CollegePostsController@scrapeForum');
+Route::get('/posts/antlers', 'CollegePostsController@scrapeTheGoldenAntlers');
+Route::get('/posts/independent', 'CollegePostsController@scrapeClaremontIndependent');
+
+Route::get('/weather', 'WeatherController@getWeather');
+
+Route::get('/email', 'CollegePostsController@sendEmail');
+
+Route::get('/populate', 'ArticleController@populate');
