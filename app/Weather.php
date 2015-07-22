@@ -10,5 +10,5 @@ class Weather extends Model
 
   protected $primaryKey = 'weather_id';
 
-  protected $fillable = ['article_id', 'icon', 'current_temp', 'max', 'min', 'updated_at', 'created_at'];
+  protected $fillable = ['article_id', 'icon', 'current_temp', 'max', 'min', 'sunsetTime', 'sunriseTime', 'updated_at', 'created_at'];
 }

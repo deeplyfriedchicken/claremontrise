@@ -217,6 +217,8 @@ CREATE TABLE IF NOT EXISTS `weather` (
   `current_temp` INT(10) NOT NULL ,
   `max` INT(10) NOT NULL ,
   `min` INT(10) NOT NULL ,
+  `sunriseTime` DATETIME NOT NULL ,
+  `sunsetTime` DATETIME NOT NULL ,
   `created_at` DATETIME NOT NULL ,
   `updated_at` DATETIME NOT NULL ,
   PRIMARY KEY (`weather_id`)  )

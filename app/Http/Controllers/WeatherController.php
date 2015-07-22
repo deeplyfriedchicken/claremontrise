@@ -20,35 +20,50 @@ class WeatherController extends Controller
      *
      * @return Response
      */
-
     public function getWeather() {
       $key = env('FORECAST_IO_API_KEY');
       $forecast = new Forecast($key);
-
-      $now = Carbon::now();
-      $date = substr($now, 0, 10);
-      $id = DB::table('email_articles')->where('post_date', $date)->value('article_id');
-      // Get the current forecast for a given latitude and longitude
       $weather = $forecast->get('34.101655','-117.707591');
-      $current = $weather->currently->temperature;
-      $max = $weather->daily->data[0]->temperatureMax;
-      $min = $weather->daily->data[0]->temperatureMin;
-      $icon = $weather->daily->data[0]->icon;
+      for ($i = 0; $i < 7; $i++) {
 
-      if (Weather::where('article_id', '=', $id)->exists()) {
-        echo "weather for ".$date." already exists";
+        if($i == 0) {
+          $current = $weather->currently->temperature;
+        }
+        else {
+          $current = -1;
+        }
+        echo $i;
+        $date = Carbon::createFromTimeStamp($weather->daily->data[$i]->time)->toDateTimeString();
+        $dateId = substr($date, 0, 10);
+        $id = DB::table('email_articles')->where('post_date', $dateId)->value('article_id');
+        $icon = $weather->daily->data[$i]->icon;
+        $max = $weather->daily->data[$i]->temperatureMax;
+        $min = $weather->daily->data[$i]->temperatureMin;
+        $sunset = Carbon::createFromTimeStamp($weather->daily->data[$i]->sunsetTime)->toDateTimeString();
+        $sunrise =  Carbon::createFromTimeStamp($weather->daily->data[$i]->sunriseTime)->toDateTimeString();
+
+        if (Weather::where('article_id', '=', $id)->exists()) {
+          DB::table('weather')
+            ->where('article_id', $id)
+            ->update(array('icon' => $icon, 'current_temp' => $current, 'max' => $max, 'min' => $min, 'sunriseTime' => $sunrise, 'sunsetTime' => $sunset, 'updated_at' => Carbon::now()));
+          echo "Updated ".$date;
+        }
+        else {
+          $entry = new Weather;
+          $entry->article_id = $id;
+          $entry->icon = $icon;
+          $entry->current_temp = $current;
+          $entry->max = $max;
+          $entry->min = $min;
+          $entry->sunsetTime = $sunset;
+          $entry->sunriseTime = $sunrise;
+          $entry->save();
+          echo "Stored ".$date."!";
+        }
       }
-      else {
-        $entry = new Weather;
-        $entry->article_id = $id;
-        $entry->icon = $icon;
-        $entry->current_temp = $current;
-        $entry->max = $max;
-        $entry->min = $min;
-        $entry->save();
-        echo "Stored ".$date."!";
-      }
+
     }
+
     public function index()
     {
         //
