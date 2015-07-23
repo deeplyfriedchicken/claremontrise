@@ -28,6 +28,9 @@ Route::get('/posts/independent', 'CollegePostsController@scrapeClaremontIndepend
 
 Route::get('/weather', 'WeatherController@getWeather');
 
+Route::get('/cms', 'SportsController@scrapeCmsSchedule');
+Route::get('/pp', 'SportsController@scrapePPSchedule');
+
 Route::get('/email', 'ArticleController@getAllData');
 
 Route::get('/populate', 'ArticleController@populate');
