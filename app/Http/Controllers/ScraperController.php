@@ -29,6 +29,17 @@ function createDateAntlers($date) {
   $timestamp = strtotime($day." ".$month." ".$year);
   return $date = Carbon::createFromTimeStamp($timestamp);
 }
+function getDateAthSpeakers($date) {
+  $timeArray = explode(',', $date);
+  $date = $timeArray[1];
+  $timeArray = explode(' ', $date);
+  $month = $timeArray[0];
+  $day = $timeArray[1];
+  $year = 2015;
+  $date = [$year, $month, $day];
+  return $date;
+}
+
 function trimWhiteSpace($str) {
   $str = rtrim($str);
   $str = ltrim($str);

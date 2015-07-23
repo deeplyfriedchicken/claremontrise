@@ -267,14 +267,17 @@ DROP TABLE IF EXISTS `athfood` ;
 CREATE TABLE IF NOT EXISTS `athfood` (
   `athfood_id` INT NOT NULL AUTO_INCREMENT ,
   `article_id` INT NOT NULL ,
-  `speaker_id` INT NOT NULL ,
-  `food` VARCHAR(45) NOT NULL ,
+  `ath_id` INT NOT NULL ,
+  `food_1` VARCHAR(100) NOT NULL DEFAULT 'N/A' ,
+  `food_2` VARCHAR(100) NOT NULL DEFAULT 'N/A' ,
+  `food_3` VARCHAR(100) NOT NULL DEFAULT 'N/A' ,
+  `food_4` VARCHAR(100) NOT NULL DEFAULT 'N/A' ,
+  `food_5` VARCHAR(100) NOT NULL DEFAULT 'N/A' ,
   `start_notify` INT NOT NULL DEFAULT 5 ,
   `updated_at` DATETIME NOT NULL ,
   `created_at` DATETIME NOT NULL ,
   PRIMARY KEY (`athfood_id`)  )
 ENGINE = InnoDB;
-
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
