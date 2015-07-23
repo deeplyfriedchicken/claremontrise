@@ -23,6 +23,16 @@ class AthenaeumController extends Controller
       if($status_code==200) {
           echo '200 OK<br>';
       }
+      $count = 0;
+      $crawler->filter('table tr')->each(function ($node, $count) {
+        echo trimWhiteSpace($node->children()->eq(0)->text()); //date & when
+        echo "<br>";
+        echo mb_convert_encoding(trimWhiteSpace($node->children()->eq(1)->text()), "HTML-ENTITIES", "UTF-8"); //description
+        echo "<br>";
+        echo mb_convert_encoding(trimWhiteSpace($node->children()->eq(1)->children()->first()->text()), "HTML-ENTITIES", "UTF-8"); //speaker
+        echo "<br>";
+        $count++;
+      });
     }
 
     public function scrapeFood() {

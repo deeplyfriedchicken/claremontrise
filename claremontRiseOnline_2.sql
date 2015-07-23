@@ -81,7 +81,7 @@ CREATE TABLE IF NOT EXISTS `ath` (
   `ath_id` INT NOT NULL AUTO_INCREMENT ,
   `article_id` INT NOT NULL ,
   `speaker` VARCHAR(100) NOT NULL ,
-  `description` VARCHAR(300) NOT NULL ,
+  `description` VARCHAR(500) NOT NULL ,
   `event_time` VARCHAR(45) NOT NULL ,
   `start_notify` INT NOT NULL DEFAULT 3 ,
   `created_at` DATETIME NOT NULL ,
