@@ -140,9 +140,10 @@ p{
 		overflow: hidden;
 		text-align:center;
 		background : url(/assets/images/riselight-mobile.png) center center no-repeat;
-		width: 350px;
-		height: 82px;
+		width: 300px;
+		height: 70;
 		margin : 0 auto;
+		padding-top: 100px;
 	}
 }
 
