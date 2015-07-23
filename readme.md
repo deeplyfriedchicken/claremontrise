@@ -12,16 +12,6 @@ Laravel is accessible, yet powerful, providing powerful tools needed for large, 
 
 ## Official Documentation
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+Claremont Rise is a web scraper that compiles information from relevant 5C College websites. This information is processed then compiled into an email that is sent out daily to subscribers.
 
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
-
-### License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+Claremont Rise is currently under construction but big steps have been made, and it may be able to be released by September 1st, 2015.
