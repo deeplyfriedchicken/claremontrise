@@ -63,13 +63,29 @@
 				</div>
 			</div>
 		</div>
-      @yield('popup')
+    @yield('more-content')
+    @yield('popup')
 	</div>
+
 
    	<script type="text/javascript" src="{{ URL::asset('/assets/js/jquery-1.11.0.min.js') }}"></script>
    	<script type="text/javascript" src="{{ URL::asset('/assets/js/bootstrap.min.js') }}"></script>
    	<script type="text/javascript" src="{{ URL::asset('/assets/js/countdown.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('/assets/js/jquery.vegas.min.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('/assets/js/scrollReveal.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('/assets/js/jquery-scrollto.js') }}"></script>
+    <script>
+      window.scrollReveal = new scrollReveal();
+      $('a[href^="#"]').on('click', function(event) {
+          var target = $($(this).attr('href'));
+          if (target.length) {
+              event.preventDefault();
+              $('html, body').animate({
+                  scrollTop: target.offset().top
+              }, 4000);
+          }
+      });
+    </script>
     <script>
     (function($){
 

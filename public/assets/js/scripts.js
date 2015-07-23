@@ -9,6 +9,7 @@
 
 	$(document).ready(function() {
 
+
 		// Image background
 		$.vegas({
             src:'/assets/images/bg1.jpg'

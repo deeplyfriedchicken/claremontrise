@@ -51,7 +51,6 @@
 
 @section('button')
 <div class="more-links">
-  <a href="#" data-modal="contact">Contact</a>
   <a href="#" data-modal="subscribe" id="subscriber">Subscribe</a>
 </div>
 {{-- <div class="more-links-go">
@@ -59,47 +58,62 @@
 </div> --}}
 @stop
 
-@section('popup')
-<div id="contact" class="new-modal">
-  <div class="container">
-    <div class="main">
+@section('more-content')
 
-      <div class="close">
-        <a href="#" class="modal-close"><i class="fa fa-times"></i></a>
-      </div>
+      <section id="about" style="background: #ffffff; z-index: 999;">
+        <div class="container-fluid" data-scroll-reveal="">
+          <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+              <i class="fa fa-star-o fa-4x"></i>
+              <h2>About us</h2>
+              <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- End About -->
 
-      <div class="title">
-        <h2>Contact</h2>
-      </div>
-      <div class="row">
-      <div class="row">
-        <div class="forms">
-          <form>
+    <!-- Contact -->
+    <section id="contact">
+      <div class="container-fluid">
+        <div class="row" data-scroll-reveal="enter from bottom after 1s">
+          <div class="col-md-6 col-md-offset-3">
+            <i class="fa fa-map-marker fa-4x"></i>
+            <h2>Contact</h2>
+            <p>Sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          </div>
+        </div>
+        <div class="row" data-scroll-reveal="enter from top after 1s">
+          <div class="col-md-3 col-md-offset-3 col-xs-12">
             <div class="form-group">
-              <label class="sr-only" for="name">Name</label>
-              <input type="text" class="form-control" id="name" placeholder="Name" required="required">
+              {!! Form::text('name', null, ['class' => 'form-control input-lg', 'id' => 'inputName', 'placeholder' => 'Name']) !!}
             </div>
+          </div>
+          <div class="col-md-3 col-xs-12">
             <div class="form-group">
-              <label class="sr-only" for="email">Email</label>
-              <input type="email" class="form-control" id="email" placeholder="Email" required="required">
+              {!! Form::email('email', null, ['class' => 'form-control input-lg', 'id' => 'inputEmail', 'placeholder' => 'E-mail']) !!}
             </div>
+          </div>
+        </div>
+        <div class="row" data-scroll-reveal="enter from top after .75s">
+          <div class="col-md-6 col-md-offset-3 col-xs-12">
             <div class="form-group">
-              <label class="sr-only" for="object">Email</label>
-              <input type="text" class="form-control" id="object" placeholder="Object" required="required">
+              {!! Form::textarea('message', null, ['class' => 'form-control input-lg', 'id' => 'inputMessage', 'placeholder' => 'Message', 'rows' => '3']) !!}
             </div>
-            <div class="form-group">
-              <textarea class="form-control" id="message" placeholder="Message" rows="3" required="required"></textarea>
+            <div class="more-links">
+              {!! Form::submit('Submit', ['class' => 'btn btn-lg btn-default', 'data-scroll-reveal' => 'enter from top after 1s']) !!}
             </div>
-            <button type="submit" class="btn btn-lg btn-default">SEND</button>
-          </form>
+          </div>
+        </div>
+        <div class="row">
+          <div class="mail-response">&nbsp;</div>
+          <div class="back-to-top"><a href="#intro" class="button">Back to top</a></div>
         </div>
       </div>
-      </div>
+    </section>
+@stop
 
-
-    </div>
-  </div>
-</div>
+@section('popup')
 
 <div id="subscribe" class="new-modal">
   <div class="container">
@@ -128,7 +142,7 @@
             <div class="form-group">
               {!! Form::email('email', null, ['class' => 'form-control', 'id' => 'subscribe-email', 'placeholder' => 'Email Address']) !!}
               {!! Form::text('college', null, ['class' => 'form-control', 'id' => 'contr-college', 'placeholder' => 'College']) !!}
-              {!! Form::submit('Login', ['class' => 'btn btn-lg btn-default']) !!}
+              {!! Form::submit('Signup', ['class' => 'btn btn-lg btn-default']) !!}
             </div>
             {!! Form:: close() !!}
           </div>

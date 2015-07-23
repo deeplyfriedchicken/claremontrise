@@ -55,7 +55,6 @@
 @section('button')
 <div class="more-links">
   <a href="#" data-modal="signup" id="signup-error">Signup</a>
-  <a href="#" data-modal="login">Login</a>
 </div>
 @stop
 
