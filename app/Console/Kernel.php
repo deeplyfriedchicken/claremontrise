@@ -19,6 +19,7 @@ class Kernel extends ConsoleKernel
         \App\Console\Commands\ScrapeAthFood::class,
         \App\Console\Commands\ScrapeSports::class,
         \App\Console\Commands\ScrapePosts::class,
+        \App\Console\Commands\GetWeather::class,
         \App\Console\Commands\CreateArticles::class
     ];
     /**
