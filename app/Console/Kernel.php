@@ -14,8 +14,13 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         \App\Console\Commands\Inspire::class,
+        \App\Console\Commands\ScrapeCMC::class,
+        \App\Console\Commands\ScrapeAthSpeakers::class,
+        \App\Console\Commands\ScrapeAthFood::class,
+        \App\Console\Commands\ScrapeSports::class,
+        \App\Console\Commands\ScrapePosts::class,
+        \App\Console\Commands\CreateArticles::class
     ];
-
     /**
      * Define the application's command schedule.
      *
@@ -26,5 +31,17 @@ class Kernel extends ConsoleKernel
     {
         $schedule->command('inspire')
                  ->hourly();
+        $schedule->command('cmc:scrape')
+                  ->dailyAt('20:10');
+        $schedule->command('sports:scrape')
+                  ->dailyAt('20:00');
+        $schedule->command('athspeakers:scrape')
+                  ->dailyAt('20:20');
+        $schedule->command('posts:scrape')
+                  ->dailyAt('20:30');
+        $schedule->command('weather:get')
+                  ->hourly();
+        $schedule->command('athfood:scrape')
+                  ->dailyAt('20:40');
     }
 }

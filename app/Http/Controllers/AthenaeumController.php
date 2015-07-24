@@ -64,7 +64,7 @@ class AthenaeumController extends Controller
 
     public function scrapeFood() {
       $client = new Client();
-      $crawler = $client->request('GET', 'https://www1.claremontmckenna.edu/mmca/cur_menu.php?iframe');
+      $crawler = $client->request('GET', 'http://www1.claremontmckenna.edu/mmca/cur_menu.php');
       $status_code = $client->getResponse()->getStatus();
       if($status_code==200) {
           echo '200 OK<br>';

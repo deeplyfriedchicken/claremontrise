@@ -1,21 +1,46 @@
 <?php
 
-namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
+namespace App\Console\Commands;
 use Goutte\Client;
 use Carbon\Carbon;
 use App\Posts;
 use DB;
-use Mail;
 
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
-require 'ScraperController.php';
-class CollegePostsController extends Controller
+use Illuminate\Console\Command;
+
+class ScrapePosts extends Command
 {
+    /**
+     * The name and signature of the console command.
+     *
+     * @var string
+     */
+    protected $signature = 'posts:scrape';
 
-    public function scrapeClaremontIndependent() {
+    /**
+     * The console command description.
+     *
+     * @var string
+     */
+    protected $description = 'Command description.';
+
+    /**
+     * Create a new command instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
+    /**
+     * Execute the console command.
+     *
+     * @return mixed
+     */
+    public function handle()
+    {
       $client = new Client();
       $crawler = $client->request('GET', 'http://claremontindependent.com/category/campus-news/');
       $status_code = $client->getResponse()->getStatus();
@@ -49,9 +74,6 @@ class CollegePostsController extends Controller
         }
       });
 
-
-    }
-    public function scrapeTheGoldenAntlers() {
       $client = new Client();
       $crawler = $client->request('GET', 'http://www.thegoldenantlers.com/');
       $status_code = $client->getResponse()->getStatus();
@@ -91,9 +113,7 @@ class CollegePostsController extends Controller
         }
         $count++;
       });
-    }
 
-    public function scrapeForum() {
       $client = new Client();
       $crawler = $client->request('GET', 'http://cmcforum.com/');
       $status_code = $client->getResponse()->getStatus();
@@ -131,78 +151,5 @@ class CollegePostsController extends Controller
         }
         $count++;
       });
-    }
-    /**
-     * Display a listing of the resource.
-     *
-     * @return Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @return Response
-     */
-    public function store()
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function update($id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 }
