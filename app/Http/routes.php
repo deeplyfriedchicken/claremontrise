@@ -25,6 +25,17 @@ Route::get('/cmcnews', 'CollegeNewsAndEventsController@scrapeCmcNews');
 Route::get('/posts/forum', 'CollegePostsController@scrapeForum');
 Route::get('/posts/antlers', 'CollegePostsController@scrapeTheGoldenAntlers');
 Route::get('/posts/independent', 'CollegePostsController@scrapeClaremontIndependent');
+Route::get('/template', function() {
+  $date = Carbon\Carbon::today();
+  $date2 = $date->addDays(1);
+  $email_article = DB::table('email_articles')->where('post_date', '>=', $date)->where('post_date', '<=', $date2)->get();
+  $id = $email_article[0]->article_id;
+  $users = $users = DB::table('users')->get();
+  $events = DB::table('events')->get();
+  $weather = DB::table('weather')->where('article_id', '>=', $id)->where('article_id', '<=', $id+2)->get();
+  $posts = DB::table('posts')->get();
+  return view('template', ['id' => $id, 'date' => Carbon\Carbon::today(), 'weather' => $weather, 'posts' => $posts, 'events' => $events]);
+});
 
 Route::get('/weather', 'WeatherController@getWeather');
 

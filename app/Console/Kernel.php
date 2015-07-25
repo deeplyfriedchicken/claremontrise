@@ -41,7 +41,7 @@ class Kernel extends ConsoleKernel
         $schedule->command('posts:scrape')
                   ->dailyAt('20:30');
         $schedule->command('weather:get')
-                  ->hourly();
+                  ->cron('* 7,16 * * *');
         $schedule->command('athfood:scrape')
                   ->dailyAt('20:40');
     }
