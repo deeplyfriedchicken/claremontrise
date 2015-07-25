@@ -7,7 +7,6 @@ use Goutte\Client;
 use Carbon\Carbon;
 use App\Posts;
 use DB;
-use Mail;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;

@@ -20,7 +20,8 @@ class Kernel extends ConsoleKernel
         \App\Console\Commands\ScrapeSports::class,
         \App\Console\Commands\ScrapePosts::class,
         \App\Console\Commands\GetWeather::class,
-        \App\Console\Commands\CreateArticles::class
+        \App\Console\Commands\CreateArticles::class,
+        \App\Console\Commands\GetBuzzFeed::class
     ];
     /**
      * Define the application's command schedule.
@@ -44,5 +45,7 @@ class Kernel extends ConsoleKernel
                   ->cron('* 7,16 * * *');
         $schedule->command('athfood:scrape')
                   ->dailyAt('20:40');
+        $schedule->command('buzzfeed:get')
+                  ->dailyAt('06:00');
     }
 }

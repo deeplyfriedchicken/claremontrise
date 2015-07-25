@@ -48,3 +48,5 @@ Route::get('/populate', 'ArticleController@populate');
 
 Route::get('/ath/speakers', 'AthenaeumController@scrapeSpeakers');
 Route::get('/ath/food', 'AthenaeumController@scrapeFood');
+
+Route::get('/buzz', 'BuzzFeedController@getXML');
