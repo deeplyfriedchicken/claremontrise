@@ -50,3 +50,4 @@ Route::get('/ath/speakers', 'AthenaeumController@scrapeSpeakers');
 Route::get('/ath/food', 'AthenaeumController@scrapeFood');
 
 Route::get('/buzz', 'BuzzFeedController@getXML');
+Route::get('/hours', 'FoodHoursController@addHours');

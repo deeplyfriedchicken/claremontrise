@@ -60,7 +60,7 @@ CREATE TABLE IF NOT EXISTS `events` (
   `article_id` INT NOT NULL ,
   `location` VARCHAR(200) NOT NULL DEFAULT 'N/A' ,
   `time1` DATETIME NOT NULL ,
-  `time2` DATETIME NULL ,
+  `time2` DATETIME NOT NULL ,
   `title` VARCHAR(200) NOT NULL ,
   `imgUrl` VARCHAR(500) NOT NULL DEFAULT 'N/A' ,
   `url` VARCHAR(1000) NOT NULL ,
@@ -81,59 +81,13 @@ CREATE TABLE IF NOT EXISTS `ath` (
   `ath_id` INT NOT NULL AUTO_INCREMENT ,
   `article_id` INT NOT NULL ,
   `speaker` VARCHAR(100) NOT NULL ,
+  `speaker_img` VARCHAR(500) NOT NULL DEFAULT 'N/A' ,
   `description` VARCHAR(500) NOT NULL ,
   `event_time` VARCHAR(45) NOT NULL ,
   `start_notify` INT NOT NULL DEFAULT 3 ,
-  `created_at` DATETIME NOT NULL ,
   `updated_at` DATETIME NOT NULL ,
+  `created_at` DATETIME NOT NULL ,
   PRIMARY KEY (`ath_id`)  )
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `flex_hours`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `flex_hours` ;
-
-CREATE TABLE IF NOT EXISTS `flex_hours` (
-  `flex_id` INT NOT NULL AUTO_INCREMENT ,
-  `store_name` VARCHAR(45) NOT NULL ,
-  `wk_m_o` VARCHAR(45) NOT NULL ,
-  `wk_m_c` VARCHAR(45) NOT NULL ,
-  `wk_l_o` VARCHAR(45) NOT NULL ,
-  `wk_l_c` VARCHAR(45) NOT NULL ,
-  `wk_d_o` VARCHAR(45) NOT NULL ,
-  `wk_d_c` VARCHAR(45) NOT NULL ,
-  `wkn_m_o` VARCHAR(45) NOT NULL ,
-  `wkn_m_c` VARCHAR(45) NOT NULL ,
-  `wkn_l_o` VARCHAR(45) NOT NULL ,
-  `wkn_l_c` VARCHAR(45) NOT NULL ,
-  `wkn_d_o` VARCHAR(45) NOT NULL ,
-  `wkn_d_c` VARCHAR(45) NOT NULL ,
-  PRIMARY KEY (`flex_id`)  )
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `dining_hall_hours`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `dining_hall_hours` ;
-
-CREATE TABLE IF NOT EXISTS `dining_hall_hours` (
-  `dhall_id` INT NOT NULL AUTO_INCREMENT ,
-  `dining_hall_name` VARCHAR(45) NOT NULL ,
-  `dining_hall_real` VARCHAR(45) NOT NULL ,
-  `wk_b_o` VARCHAR(45) NOT NULL ,
-  `wk_b_c` VARCHAR(45) NOT NULL ,
-  `wk_l_o` VARCHAR(45) NOT NULL ,
-  `wk_l_c` VARCHAR(45) NOT NULL ,
-  `wk_d_o` VARCHAR(45) NOT NULL ,
-  `wk_d_c` VARCHAR(45) NOT NULL ,
-  `wk_br_o` VARCHAR(45) NOT NULL ,
-  `wk_br_c` VARCHAR(45) NOT NULL ,
-  `wk_wd_o` VARCHAR(45) NOT NULL ,
-  `wk_wd_c` VARCHAR(45) NOT NULL ,
-  PRIMARY KEY (`dhall_id`)  )
 ENGINE = InnoDB;
 
 
@@ -163,6 +117,7 @@ CREATE TABLE IF NOT EXISTS `sports` (
   `college` VARCHAR(50) NOT NULL ,
   `team` VARCHAR(100) NOT NULL ,
   `opponent` VARCHAR(100) NOT NULL ,
+  `location` VARCHAR(100) NOT NULL DEFAULT 'N/A' ,
   `livestream` VARCHAR(500) NOT NULL DEFAULT 'N/A' ,
   `time_start` DATETIME NOT NULL ,
   `start_notify` INT NOT NULL DEFAULT 1 ,
@@ -181,7 +136,7 @@ CREATE TABLE IF NOT EXISTS `subscribers` (
   `subscriber_id` INT NOT NULL AUTO_INCREMENT ,
   `email` VARCHAR(150) NOT NULL ,
   `college` VARCHAR(50) NOT NULL ,
-  `notify` TINYINT(1) NOT NULL DEFAULT 1 ,
+  `notify` INT(4) NOT NULL DEFAULT 1111 ,
   `created_at` DATETIME NOT NULL ,
   `updated_at` DATETIME NOT NULL ,
   PRIMARY KEY (`subscriber_id`)  )
@@ -196,7 +151,7 @@ DROP TABLE IF EXISTS `email_articles` ;
 CREATE TABLE IF NOT EXISTS `email_articles` (
   `article_id` INT NOT NULL AUTO_INCREMENT ,
   `post_date` DATE NOT NULL ,
-  `file_directory` VARCHAR(500) NOT NULL DEFAULT 'not set' ,
+  `file_directory` VARCHAR(500) NOT NULL DEFAULT 'N/A' ,
   `created_at` DATETIME NOT NULL ,
   `updated_at` DATETIME NOT NULL ,
   PRIMARY KEY (`article_id`)  ,
@@ -277,6 +232,43 @@ CREATE TABLE IF NOT EXISTS `athfood` (
   `created_at` DATETIME NOT NULL ,
   PRIMARY KEY (`athfood_id`)  )
 ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `food_hours`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `food_hours` ;
+
+CREATE TABLE IF NOT EXISTS `food_hours` (
+  `hours_id` INT NOT NULL AUTO_INCREMENT ,
+  `name` VARCHAR(200) NOT NULL ,
+  `type` VARCHAR(50) NOT NULL ,
+  `1_morning_hours` VARCHAR(100) NOT NULL DEFAULT 'Closed' ,
+  `1_afternoon_hours` VARCHAR(100) NOT NULL DEFAULT 'Closed' ,
+  `1_night_hours` VARCHAR(100) NOT NULL DEFAULT 'Closed' ,
+  `2_morning_hours` VARCHAR(100) NOT NULL DEFAULT 'Closed' ,
+  `2_afternoon_hours` VARCHAR(100) NOT NULL DEFAULT 'Closed' ,
+  `2_night_hours` VARCHAR(100) NOT NULL DEFAULT 'Closed' ,
+  `3_morning_hours` VARCHAR(100) NOT NULL DEFAULT 'Closed' ,
+  `3_afternoon_hours` VARCHAR(100) NOT NULL DEFAULT 'Closed' ,
+  `3_night_hours` VARCHAR(100) NOT NULL DEFAULT 'Closed' ,
+  `4_morning_hours` VARCHAR(100) NOT NULL DEFAULT 'Closed' ,
+  `4_afternoon_hours` VARCHAR(100) NOT NULL DEFAULT 'Closed' ,
+  `4_night_hours` VARCHAR(100) NOT NULL DEFAULT 'Closed' ,
+  `5_morning_hours` VARCHAR(100) NOT NULL DEFAULT 'Closed' ,
+  `5_afternoon_hours` VARCHAR(100) NOT NULL DEFAULT 'Closed' ,
+  `5_night_hours` VARCHAR(100) NOT NULL DEFAULT 'Closed' ,
+  `6_morning_hours` VARCHAR(100) NOT NULL DEFAULT 'Closed' ,
+  `6_afternoon_hours` VARCHAR(100) NOT NULL DEFAULT 'Closed' ,
+  `6_night_hours` VARCHAR(100) NOT NULL DEFAULT 'Closed' ,
+  `7_morning_hours` VARCHAR(100) NOT NULL DEFAULT 'Closed' ,
+  `7_afternoon_hours` VARCHAR(100) NOT NULL DEFAULT 'Closed' ,
+  `7_night_hours` VARCHAR(100) NOT NULL DEFAULT 'Closed' ,
+  `updated_at` DATETIME NOT NULL ,
+  `created_at` DATETIME NOT NULL ,
+  PRIMARY KEY (`hours_id`)  )
+ENGINE = InnoDB;
+
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;

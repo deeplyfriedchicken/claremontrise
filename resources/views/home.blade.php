@@ -4,31 +4,6 @@
 
 @section('style')
   <style>
-  /*@media screen {
-    .more-links-go {
-      margin-bottom: 40px;
-      text-align: center;
-    }
-    .more-links-go a {
-      border-radius: 25px !important;
-      width: 160px !important;
-    }
-    .more-links-go a {
-      border: 2px solid #fff;
-      display: inline-block;
-      font-size: 18px;
-      letter-spacing: 2px;
-      height: 50px;
-      font-weight: 300;
-      line-height: 46px;
-      margin: 0 10px;
-      transition: all 0.5s ease-in-out;
-      -webkit-transition: all 0.5s ease-in-out;
-      -moz-transition: all 0.5s ease-in-out;
-      -ms-transition: all 0.5s ease-in-out;
-      -o-transition: all 0.5s ease-in-out;
-    }
-  }*/
   </style>
 @stop
 
