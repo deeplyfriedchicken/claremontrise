@@ -58,6 +58,9 @@ class GetWeather extends Command
         $dateId = substr($date, 0, 10);
         $id = DB::table('email_articles')->where('post_date', $dateId)->value('article_id');
         $icon = $weather->daily->data[$i]->icon;
+        if (strpos($icon,'night') !== false) {
+          $icon = 'clear-day';
+        }
         $max = $weather->daily->data[$i]->temperatureMax;
         $min = $weather->daily->data[$i]->temperatureMin;
         $sunset = Carbon::createFromTimeStamp($weather->daily->data[$i]->sunsetTime)->toDateTimeString();

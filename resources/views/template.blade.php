@@ -399,10 +399,18 @@
 													<!-- ======= section subtitle ====== -->
 
 													<div class="editable_text" style="line-height: 22px;">
-														<span class="text_container">Currently: {{ var_dump($weather) }}<br>
-Lo:&nbsp;65<br>
-Hi:&nbsp;87<br>
-Sunset:&nbsp;5:57PM</span>
+														<span class="text_container">Currently:
+															{{ $weather[0]->current_temp }}
+															<!-- @foreach($weather as $day)
+																@if($day->article_id == $id[0])
+																	{{ $day->current_temp }}
+																@endif
+															@endforeach -->
+															<br>
+Lo:&nbsp;{{ $weather[0]->min }}<br>
+Hi:&nbsp;{{ $weather[0]->max }}<br>
+Sunset:&nbsp;<?php $sunset = strtotime($weather[0]->sunsetTime);
+echo date('h:i A', $sunset); ?></span>
 													</div>
 						        				</td>
 											</tr>
@@ -442,9 +450,10 @@ Sunset:&nbsp;5:57PM</span>
 													<!-- ======= section subtitle ====== -->
 
 													<div class="editable_text" style="line-height: 22px;">
-														<span class="text_container">Hi:&nbsp;89<br>
-Lo:&nbsp;65<br>
-Sunrise: 5:58AM</span>
+														<span class="text_container">Hi:&nbsp;{{ $weather2[0]->max }}<br>
+Lo:&nbsp;{{ $weather2[0]->min }}<br>
+Sunrise: <?php $sunrise = strtotime($weather2[0]->sunriseTime);
+echo date('h:i A', $sunrise); ?></span>
 													</div>
 						        				</td>
 											</tr>
@@ -570,11 +579,11 @@ Sunrise: 5:58AM</span>
 
 										<div class="editable_text" style="line-height: 22px">
 											<span class="text_container"><ul>
-	<li>Move In Day at 4:00PM</li>
-	<li>KLI Open House at 1:30PM</li>
-	<li>Convocation at 1:00PM</li>
-</ul>
-</span>
+												@foreach($events as $event)
+													<li><a href="{{ $event->url }}">{{ $event->title }}</a> at <?php $time = strtotime($event->time1); echo date('h:i A', $time);?></li>
+												@endforeach
+											</ul>
+										</span>
 										</div>
 			        				</td>
 								</tr>
@@ -673,7 +682,7 @@ Sunrise: 5:58AM</span>
 												<!-- ======= feature image 51px width ======= -->
 
 												<td align="center" class="section-img">
-													<a href="" style=" border-style: none !important; display: block; border: 0 !important;" class="editable_img"><img src="http://www.cmc.edu/sites/default/files/styles/square-112x112/public/media/news/20150723-Special-Olympics-Logo.jpg?itok=ZFA3iF8v" style="display: block; width: 180px;" width="190" border="0" alt="gallery img" class=""></a>
+													<a href="" style=" border-style: none !important; display: block; border: 0 !important;" class="editable_img"><img src="@if($collegeNews[0]->imgUrl == 'N/A') https://pbs.twimg.com/profile_images/1706806811/CMCnews_twitter_logo_400x400.png @else {{ $collegeNews[0]->imgUrl }} @endif" style="display: block; width: 180px;" width="190" border="0" alt="gallery img" class=""></a>
 												</td>
 											</tr>
 
@@ -683,30 +692,38 @@ Sunrise: 5:58AM</span>
 												<td align="center">
 													<table align="center" width="160" border="0" cellpadding="0" cellspacing="0" class="container580">
 														<tbody><tr>
-															<td align="left" style="color: rgb(31, 79, 105); font-size: 14px; font-family: Lato, Calibri, sans-serif; line-height: 24px;" class="title_color">
+															<td align="center" style="color: rgb(31, 79, 105); font-size: 14px; font-family: Lato, Calibri, sans-serif; line-height: 24px;" class="title_color">
 																<!-- ======= section text ====== -->
 
 																<div class="editable_text" style="line-height: 24px">
-																	<span class="text_container">CMC host Special Olympics athletes and coaches</span>
+																	<span class="text_container">{{ $collegeNews[0]->title }}</span>
 																</div>
 									        				</td>
-															<td align="right">
-																<table align="right" border="0" cellpadding="0" cellspacing="0">
-																	<tbody><tr>
-																		<td width="20">
-																			<img src="http://pickedmail.com/showcase/img/heart-icon.png" width="15" alt="" style="display: block; width: 15px;">
-																		</td>
-																		<td align="center" style="color: rgb(31, 79, 105); font-size: 14px; font-family: Lato, Calibri, sans-serif; line-height: 24px;" class="title_color">
-																			<!-- ======= section text ====== -->
-
-																			<div class="editable_text" style="line-height: 24px">
-													        					<a href="" style="text-decoration: none; color: #656565;">20</a>
-																			</div>
-												        				</td>
-																	</tr>
-																</tbody></table>
-															</td>
 														</tr>
+													</tbody></table>
+												</td>
+											</tr>
+											<tr>
+												<td height="50">
+													<table border="0" align="center" width="96" cellpadding="0" cellspacing="0" bgcolor="8093a1" style="border-radius: 3px; background-color: rgb(106, 116, 124);" class="button_color">
+
+														<tbody><tr><td height="5" style="font-size: 5px; line-height: 5px;">&nbsp;</td></tr>
+
+														<tr>
+
+							                				<td align="center" style="color: #ffffff; font-size: 12px; font-family: Lato, Calibri, sans-serif; font-weight: 700;">
+							                					<!-- ======= main section button ======= -->
+
+								                    			<div class="editable_text" style="line-height: 20px;">
+								                    				<span class="text_container">
+									                    			<a href="" style="color: #ffffff; text-decoration: none;">read more</a>
+								                    				</span>
+								                    			</div>
+								                    		</td>
+														</tr>
+
+														<tr><td height="5" style="font-size: 5px; line-height: 5px;">&nbsp;</td></tr>
+
 													</tbody></table>
 												</td>
 											</tr>
@@ -725,7 +742,7 @@ Sunrise: 5:58AM</span>
 												<!-- ======= feature image 51px width ======= -->
 
 												<td align="center" class="section-img">
-													<a href="" style=" border-style: none !important; display: block; border: 0 !important;" class="editable_img"><img src="http://www.cmc.edu/sites/default/files/styles/square-112x112/public/media/news/18_83A6031.jpg?itok=2eTj-_Dh" style="display: block; width: 180px;" width="190" border="0" alt="gallery img" class=""></a>
+													<a href="" style=" border-style: none !important; display: block; border: 0 !important;" class="editable_img"><img src="@if($collegeNews[1]->imgUrl == 'N/A') https://pbs.twimg.com/profile_images/1706806811/CMCnews_twitter_logo_400x400.png @else {{ $collegeNews[1]->imgUrl }} @endif" style="display: block; width: 180px;" width="190" border="0" alt="gallery img" class=""></a>
 												</td>
 											</tr>
 
@@ -735,32 +752,38 @@ Sunrise: 5:58AM</span>
 												<td align="center">
 													<table align="center" width="160" border="0" cellpadding="0" cellspacing="0" class="container580">
 														<tbody><tr>
-															<td align="left" style="color: rgb(31, 79, 105); font-size: 14px; font-family: Lato, Calibri, sans-serif; line-height: 24px;" class="title_color">
+															<td align="center" style="color: rgb(31, 79, 105); font-size: 14px; font-family: Lato, Calibri, sans-serif; line-height: 24px;" class="title_color">
 																<!-- ======= section text ====== -->
 
 																<div class="editable_text" style="line-height: 24px">
-																	<span class="text_container">Roberts Pavilion construction update, July 2015</span>
+																	<span class="text_container">{{ $collegeNews[1]->title }}</span>
 																</div>
 									        				</td>
-															<td align="right">
-																<table align="right" border="0" cellpadding="0" cellspacing="0">
-																	<tbody><tr>
-																		<td width="20">
-																			<img src="http://pickedmail.com/showcase/img/heart-icon.png" width="15" alt="" style="display: block; width: 15px;">
-																		</td>
-																		<td align="center" style="color: rgb(31, 79, 105); font-size: 14px; font-family: Lato, Calibri, sans-serif; line-height: 24px;" class="title_color">
-																			<!-- ======= section text ====== -->
-
-																			<div class="editable_text" style="line-height: 24px">
-																				<span class="text_container">
-													        					<a href="" style="text-decoration: none; color: #656565;">9</a>
-																				</span>
-																			</div>
-												        				</td>
-																	</tr>
-																</tbody></table>
-															</td>
 														</tr>
+													</tbody></table>
+												</td>
+											</tr>
+											<tr>
+												<td height="50">
+													<table border="0" align="center" width="96" cellpadding="0" cellspacing="0" bgcolor="8093a1" style="border-radius: 3px; background-color: rgb(106, 116, 124);" class="button_color">
+
+														<tbody><tr><td height="5" style="font-size: 5px; line-height: 5px;">&nbsp;</td></tr>
+
+														<tr>
+
+							                				<td align="center" style="color: #ffffff; font-size: 12px; font-family: Lato, Calibri, sans-serif; font-weight: 700;">
+							                					<!-- ======= main section button ======= -->
+
+								                    			<div class="editable_text" style="line-height: 20px;">
+								                    				<span class="text_container">
+									                    			<a href="" style="color: #ffffff; text-decoration: none;">read more</a>
+								                    				</span>
+								                    			</div>
+								                    		</td>
+														</tr>
+
+														<tr><td height="5" style="font-size: 5px; line-height: 5px;">&nbsp;</td></tr>
+
 													</tbody></table>
 												</td>
 											</tr>
@@ -782,7 +805,7 @@ Sunrise: 5:58AM</span>
 									<!-- ======= feature image 51px width ======= -->
 
 									<td align="center" class="section-img">
-										<a href="" style=" border-style: none !important; display: block; border: 0 !important;" class="editable_img"><img src="https://pbs.twimg.com/profile_images/1706806811/CMCnews_twitter_logo_400x400.png" style="display: block; width: 180px;" width="190" border="0" alt="gallery img" class=""></a>
+										<a href="" style=" border-style: none !important; display: block; border: 0 !important;" class="editable_img"><img src="@if($collegeNews[2]->imgUrl == 'N/A') https://pbs.twimg.com/profile_images/1706806811/CMCnews_twitter_logo_400x400.png @else {{ $collegeNews[2]->imgUrl }} @endif" style="display: block; width: 180px;" width="190" border="0" alt="gallery img" class=""></a>
 									</td>
 								</tr>
 
@@ -792,32 +815,38 @@ Sunrise: 5:58AM</span>
 									<td align="center">
 										<table align="center" width="160" border="0" cellpadding="0" cellspacing="0" class="container580">
 											<tbody><tr>
-												<td align="left" style="color: rgb(31, 79, 105); font-size: 14px; font-family: Lato, Calibri, sans-serif; line-height: 24px;" class="title_color">
+												<td align="center" style="color: rgb(31, 79, 105); font-size: 14px; font-family: Lato, Calibri, sans-serif; line-height: 24px;" class="title_color">
 													<!-- ======= section text ====== -->
 
 													<div class="editable_text" style="line-height: 24px">
-														<span class="text_container">John Faranda ’79 named Ambassador-at-Large</span>
+														<span class="text_container">{{ $collegeNews[2]->title }}</span>
 													</div>
 						        				</td>
-												<td align="right">
-													<table align="right" border="0" cellpadding="0" cellspacing="0">
-														<tbody><tr>
-															<td width="20">
-																<img src="http://pickedmail.com/showcase/img/heart-icon.png" width="15" alt="" style="display: block; width: 15px;">
-															</td>
-															<td align="center" style="color: rgb(31, 79, 105); font-size: 14px; font-family: Lato, Calibri, sans-serif; line-height: 24px;" class="title_color">
-																<!-- ======= section text ====== -->
-
-																<div class="editable_text" style="line-height: 24px">
-																	<span class="text_container">
-										        					<a href="" style="text-decoration: none; color: #656565;">12</a>
-																	</span>
-																</div>
-									        				</td>
-														</tr>
-													</tbody></table>
-												</td>
 											</tr>
+										</tbody></table>
+									</td>
+								</tr>
+								<tr>
+									<td height="50">
+										<table border="0" align="center" width="96" cellpadding="0" cellspacing="0" bgcolor="8093a1" style="border-radius: 3px; background-color: rgb(106, 116, 124);" class="button_color">
+
+											<tbody><tr><td height="5" style="font-size: 5px; line-height: 5px;">&nbsp;</td></tr>
+
+											<tr>
+
+				                				<td align="center" style="color: #ffffff; font-size: 12px; font-family: Lato, Calibri, sans-serif; font-weight: 700;">
+				                					<!-- ======= main section button ======= -->
+
+					                    			<div class="editable_text" style="line-height: 20px;">
+					                    				<span class="text_container">
+						                    			<a href="" style="color: #ffffff; text-decoration: none;">read more</a>
+					                    				</span>
+					                    			</div>
+					                    		</td>
+											</tr>
+
+											<tr><td height="5" style="font-size: 5px; line-height: 5px;">&nbsp;</td></tr>
+
 										</tbody></table>
 									</td>
 								</tr>

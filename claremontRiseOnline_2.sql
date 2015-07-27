@@ -60,7 +60,7 @@ CREATE TABLE IF NOT EXISTS `events` (
   `article_id` INT NOT NULL ,
   `location` VARCHAR(200) NOT NULL DEFAULT 'N/A' ,
   `time1` DATETIME NOT NULL ,
-  `time2` DATETIME NOT NULL ,
+  `time2` DATETIME ,
   `title` VARCHAR(200) NOT NULL ,
   `imgUrl` VARCHAR(500) NOT NULL DEFAULT 'N/A' ,
   `url` VARCHAR(1000) NOT NULL ,
