@@ -18,8 +18,8 @@ class StoresController extends Controller
       else {
         $store = new Stores;
         $store->name = $name;
-        $store->sh_name = 'collins';
-        $store->campus = 'CMC';
+        $store->sh_name = 'cmc';
+        $store->campus = 'collins';
         $store->save();
         echo "Stored ".$store->name;
       }
@@ -90,7 +90,7 @@ class StoresController extends Controller
       else {
         $store = new Stores;
         $store->name = 'Oldenborg';
-        $store->sh_name = 'old';
+        $store->sh_name = 'oldenborg';
         $store->campus = 'Pomona';
         $store->save();
         echo "Stored ".$store->name;
