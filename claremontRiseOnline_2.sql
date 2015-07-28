@@ -60,7 +60,7 @@ CREATE TABLE IF NOT EXISTS `events` (
   `article_id` INT NOT NULL ,
   `location` VARCHAR(200) NOT NULL DEFAULT 'N/A' ,
   `time1` DATETIME NOT NULL ,
-  `time2` DATETIME ,
+  `time2` DATETIME NULL ,
   `title` VARCHAR(200) NOT NULL ,
   `imgUrl` VARCHAR(500) NOT NULL DEFAULT 'N/A' ,
   `url` VARCHAR(1000) NOT NULL ,
@@ -180,19 +180,6 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `api_keys`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `api_keys` ;
-
-CREATE TABLE IF NOT EXISTS `api_keys` (
-  `api_id` INT NOT NULL ,
-  `name` VARCHAR(100) NOT NULL ,
-  `key` VARCHAR(200) NOT NULL ,
-  PRIMARY KEY (`api_id`)  )
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
 -- Table `posts`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `posts` ;
@@ -241,32 +228,91 @@ DROP TABLE IF EXISTS `food_hours` ;
 
 CREATE TABLE IF NOT EXISTS `food_hours` (
   `hours_id` INT NOT NULL AUTO_INCREMENT ,
-  `name` VARCHAR(200) NOT NULL ,
-  `type` VARCHAR(50) NOT NULL ,
-  `1_morning_hours` VARCHAR(100) NOT NULL DEFAULT 'Closed' ,
-  `1_afternoon_hours` VARCHAR(100) NOT NULL DEFAULT 'Closed' ,
-  `1_night_hours` VARCHAR(100) NOT NULL DEFAULT 'Closed' ,
-  `2_morning_hours` VARCHAR(100) NOT NULL DEFAULT 'Closed' ,
-  `2_afternoon_hours` VARCHAR(100) NOT NULL DEFAULT 'Closed' ,
-  `2_night_hours` VARCHAR(100) NOT NULL DEFAULT 'Closed' ,
-  `3_morning_hours` VARCHAR(100) NOT NULL DEFAULT 'Closed' ,
-  `3_afternoon_hours` VARCHAR(100) NOT NULL DEFAULT 'Closed' ,
-  `3_night_hours` VARCHAR(100) NOT NULL DEFAULT 'Closed' ,
-  `4_morning_hours` VARCHAR(100) NOT NULL DEFAULT 'Closed' ,
-  `4_afternoon_hours` VARCHAR(100) NOT NULL DEFAULT 'Closed' ,
-  `4_night_hours` VARCHAR(100) NOT NULL DEFAULT 'Closed' ,
-  `5_morning_hours` VARCHAR(100) NOT NULL DEFAULT 'Closed' ,
-  `5_afternoon_hours` VARCHAR(100) NOT NULL DEFAULT 'Closed' ,
-  `5_night_hours` VARCHAR(100) NOT NULL DEFAULT 'Closed' ,
-  `6_morning_hours` VARCHAR(100) NOT NULL DEFAULT 'Closed' ,
-  `6_afternoon_hours` VARCHAR(100) NOT NULL DEFAULT 'Closed' ,
-  `6_night_hours` VARCHAR(100) NOT NULL DEFAULT 'Closed' ,
-  `7_morning_hours` VARCHAR(100) NOT NULL DEFAULT 'Closed' ,
-  `7_afternoon_hours` VARCHAR(100) NOT NULL DEFAULT 'Closed' ,
-  `7_night_hours` VARCHAR(100) NOT NULL DEFAULT 'Closed' ,
+  `store_id` VARCHAR(45) NOT NULL ,
+  `day_of_week` VARCHAR(45) NOT NULL ,
+  `morning_hours` VARCHAR(45) NOT NULL DEFAULT 'empty' ,
+  `afternoon_hours` VARCHAR(45) NOT NULL DEFAULT 'empty' ,
+  `night_hours` VARCHAR(45) NOT NULL DEFAULT 'empty' ,
   `updated_at` DATETIME NOT NULL ,
   `created_at` DATETIME NOT NULL ,
   PRIMARY KEY (`hours_id`)  )
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `dining_hall_food`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `dining_hall_food` ;
+
+CREATE TABLE IF NOT EXISTS `dining_hall_food` (
+  `food_id` INT NOT NULL AUTO_INCREMENT ,
+  `store_id` VARCHAR(45) NOT NULL ,
+  `foodName` VARCHAR(45) NOT NULL ,
+  `created_at` DATETIME NOT NULL ,
+  `updated_at` DATETIME NOT NULL ,
+  PRIMARY KEY (`food_id`)  )
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `stores`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `stores` ;
+
+CREATE TABLE IF NOT EXISTS `stores` (
+  `store_id` INT NOT NULL AUTO_INCREMENT ,
+  `name` VARCHAR(200) NOT NULL ,
+  `sh_name` VARCHAR(100) NOT NULL ,
+  `campus` VARCHAR(50) NOT NULL ,
+  `created_at` DATETIME NOT NULL ,
+  `updated_at` DATETIME NOT NULL ,
+  PRIMARY KEY (`store_id`)  )
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `gifs`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `gifs` ;
+
+CREATE TABLE IF NOT EXISTS `gifs` (
+  `gif_id` INT NOT NULL AUTO_INCREMENT ,
+  `article_id` INT NOT NULL ,
+  `imgUrl` VARCHAR(300) NOT NULL ,
+  `created_at` DATETIME NOT NULL ,
+  `updated_at` DATETIME NOT NULL ,
+  PRIMARY KEY (`gif_id`)  )
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `icons`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `icons` ;
+
+CREATE TABLE IF NOT EXISTS `icons` (
+  `icon_id` INT NOT NULL AUTO_INCREMENT ,
+  `name` VARCHAR(100) NULL ,
+  `imgUrl` VARCHAR(300) NULL ,
+  `created_at` DATETIME NULL ,
+  `updated_at` DATETIME NULL ,
+  PRIMARY KEY (`icon_id`)  )
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `subscriber_choices`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `subscriber_choices` ;
+
+CREATE TABLE IF NOT EXISTS `subscriber_choices` (
+  `choices_id` INT NOT NULL AUTO_INCREMENT ,
+  `subscriber_id` INT NOT NULL ,
+  `section` VARCHAR(200) NOT NULL ,
+  `include?` INT NOT NULL DEFAULT 1 ,
+  `updated_at` DATETIME NOT NULL ,
+  `created_at` DATETIME NOT NULL ,
+  PRIMARY KEY (`choices_id`)  )
 ENGINE = InnoDB;
 
 

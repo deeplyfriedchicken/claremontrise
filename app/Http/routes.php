@@ -59,3 +59,5 @@ Route::get('/ath/food', 'AthenaeumController@scrapeFood');
 
 Route::get('/buzz', 'BuzzFeedController@getXML');
 Route::get('/hours', 'FoodHoursController@addHours');
+
+Route::get('/icons', 'WeatherController@weatherIcons');

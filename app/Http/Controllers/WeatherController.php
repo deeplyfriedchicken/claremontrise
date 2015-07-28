@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Forecast\Forecast;
 use Carbon\Carbon;
 use App\Weather;
+use App\Icons;
 use DB;
 use App;
 
@@ -64,9 +65,56 @@ class WeatherController extends Controller
 
     }
 
-    public function index()
+    public function index() {
+
+    }
+
+    public function weatherIcons()
     {
-        //
+        $icon = new Icons;
+        $icon->name = 'clear-day';
+        $icon->imgUrl = 'https://dl.dropboxusercontent.com/u/48479368/weather/clear-day.svg';
+        $icon->save();
+
+        $icon = new Icons;
+        $icon->name = 'cloudy';
+        $icon->imgUrl = 'https://dl.dropboxusercontent.com/u/48479368/weather/cloudy.svg';
+        $icon->save();
+
+        $icon = new Icons;
+        $icon->name = 'fog';
+        $icon->imgUrl = 'https://dl.dropboxusercontent.com/u/48479368/weather/fog.svg';
+        $icon->save();
+
+        $icon = new Icons;
+        $icon->name = 'partly-cloudy';
+        $icon->imgUrl = 'https://dl.dropboxusercontent.com/u/48479368/weather/partly-cloudy.svg';
+        $icon->save();
+
+        $icon = new Icons;
+        $icon->name = 'rain';
+        $icon->imgUrl = 'https://dl.dropboxusercontent.com/u/48479368/weather/rain.svg';
+        $icon->save();
+
+        $icon = new Icons;
+        $icon->name = 'rain';
+        $icon->imgUrl = 'https://dl.dropboxusercontent.com/u/48479368/weather/wind.svg';
+        $icon->save();
+
+        $icon = new Icons;
+        $icon->name = 'rain';
+        $icon->imgUrl = 'https://dl.dropboxusercontent.com/u/48479368/weather/wind.svg';
+        $icon->save();
+
+        $icon = new Icons;
+        $icon->name = 'compass';
+        $icon->imgUrl = 'https://dl.dropboxusercontent.com/u/48479368/weather/compass.svg';
+        $icon->save();
+
+        $icon = new Icons;
+        $icon->name = 'N/A';
+        $icon->imgUrl = 'https://dl.dropboxusercontent.com/u/48479368/weather/N%3AA.svg';
+        $icon->save();
     }
 
     /**
