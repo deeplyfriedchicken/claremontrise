@@ -246,8 +246,10 @@ DROP TABLE IF EXISTS `dining_hall_food` ;
 
 CREATE TABLE IF NOT EXISTS `dining_hall_food` (
   `food_id` INT NOT NULL AUTO_INCREMENT ,
-  `store_id` VARCHAR(45) NOT NULL ,
-  `foodName` VARCHAR(45) NOT NULL ,
+  `store_id` INT NOT NULL ,
+  `article_id` INT NOT NULL ,
+  `foodName` VARCHAR(100) NOT NULL ,
+  `meal` VARCHAR(50) NOT NULL ,
   `created_at` DATETIME NOT NULL ,
   `updated_at` DATETIME NOT NULL ,
   PRIMARY KEY (`food_id`)  )
