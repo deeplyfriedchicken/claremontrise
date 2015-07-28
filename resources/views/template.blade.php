@@ -370,9 +370,12 @@
 											<tbody><tr>
 
 												<!-- ======= feature image 51px width ======= -->
-
 												<td align="center">
-													<a href="" style=" border-style: none !important; display: block; border: 0 !important;" class="editable_img"><img src="https://dl.dropboxusercontent.com/u/48479368/images/sunny-icon-2-614x460.png" style="display: block; width: 54px;" width="54" border="0" alt="feature image" class=""></a>
+													<a href="" style=" border-style: none !important; display: block; border: 0 !important;" class="editable_img"><img src="@foreach($icons as $icon)
+														@if($icon->name == $weather[0]->icon)
+															{{ $icon->imgUrl }}
+														@endif
+													@endforeach" style="display: block; width: 54px;" width="54" border="0" alt="feature image" class=""></a>
 												</td>
 											</tr>
 
@@ -427,7 +430,11 @@ echo date('h:i A', $sunset); ?></span>
 												<!-- ======= feature image 51px width ======= -->
 
 												<td align="center">
-													<a href="" style=" border-style: none !important; display: block; border: 0 !important;" class="editable_img"><img src="https://dl.dropboxusercontent.com/u/48479368/images/mostly-sunny-icon.png" style="display: block; width: 54px;" width="54" border="0" alt="feature image" class=""></a>
+													<a href="" style=" border-style: none !important; display: block; border: 0 !important;" class="editable_img"><img src="@foreach($icons as $icon)
+														@if($icon->name == $weather2[0]->icon)
+															{{ $icon->imgUrl }}
+														@endif
+													@endforeach" style="display: block; width: 54px;" width="54" border="0" alt="feature image" class=""></a>
 												</td>
 											</tr>
 
@@ -473,7 +480,11 @@ echo date('h:i A', $sunrise); ?></span>
 									<!-- ======= feature image 51px width ======= -->
 
 									<td align="center">
-										<a href="" style=" border-style: none !important; display: block; border: 0 !important;" class="editable_img"><img src="https://s3.amazonaws.com/kinlane-productions/api-evangelist/noun-project/the-noun-project-clicking-heels.jpg" style="display: block; width: 54px;" width="54" border="0" alt="feature image" class=""></a>
+										<a href="" style=" border-style: none !important; display: block; border: 0 !important;" class="editable_img"><img src="@foreach($icons as $icon)
+											@if($icon->name == $weather3[0]->icon)
+												{{ $icon->imgUrl }}
+											@endif
+										@endforeach" style="display: block; width: 54px;" width="54" border="0" alt="feature image" class=""></a>
 									</td>
 								</tr>
 
@@ -484,7 +495,7 @@ echo date('h:i A', $sunrise); ?></span>
 										<!-- ======= section text ====== -->
 
 										<div class="editable_text" style="line-height: 22px">
-											<span class="text_container">Week Forecast</span>
+											<span class="text_container">Day After Tomorrow</span>
 										</div>
 			        				</td>
 								</tr>
@@ -496,7 +507,10 @@ echo date('h:i A', $sunrise); ?></span>
 										<!-- ======= section subtitle ====== -->
 
 										<div class="editable_text" style="line-height: 22px;">
-											<span class="text_container">It's looking good, lots of heat.</span>
+											<span class="text_container">Hi:&nbsp;{{ $weather3[0]->max }}<br>
+Lo:&nbsp;{{ $weather3[0]->min }}<br>
+Sunrise: <?php $sunrise = strtotime($weather3[0]->sunriseTime);
+echo date('h:i A', $sunrise); ?></span>
 										</div>
 			        				</td>
 								</tr>
@@ -903,7 +917,7 @@ echo date('h:i A', $sunrise); ?></span>
 							<!-- ======= section text ====== -->
 
 							<div class="editable_text" style="line-height: 24px">
-								<span class="text_container">IT'S SO GOOD</span>
+								<span class="text_container">SCRIPPS</span>
 							</div>
         				</td>
 					</tr>
@@ -929,14 +943,14 @@ echo date('h:i A', $sunrise); ?></span>
 
 											<tr>
 												<td align="center">
-													<table border="0" width="160" align="center" cellpadding="0" cellspacing="0" class="container580">
+													<table border="0" width="160" align="left" cellpadding="0" cellspacing="0" class="container580">
 
 														<tbody>
 															<tr>
 																<td align="center" style="color: #00accc; font-size: 16px; font-family: Lato, Calibri, sans-serif; line-height: 22px;" class="blue_color">
 																	<!-- ======= section text ====== -->
 																	<div class="editable_text" style="line-height: 22px">
-																			<span class="text_container">Collins</span>
+																			<span class="text_container">Breakfast</span>
 																		</div>
 																		</td>
 															</tr>
@@ -946,18 +960,10 @@ echo date('h:i A', $sunrise); ?></span>
 
 																<div class="editable_text" style="line-height: 22px">
 																	<span class="text_container"><div><br>
-<!--StartFragment-->steel cut oatmeal<br>
-omelet bar<br>
-scrambled eggs<br>
-scrambled eggs with cheddar<br>
-scrambled egg white<br>
-scrambled tofu<br>
-turkey sausage links<br>
-vegetarian bacon strips<br>
-french fried tater tots<br>
-chilaquiles with fire roasted salsa<br>
-belgian waffles<br>
-sausage gravy &amp;amp; biscuit<br>
+<!--StartFragment-->
+@foreach($menu1 as $food)
+	<li>{{ $food->foodName }}</li>
+@endforeach
 <!--EndFragment--></div>
 </span>
 																</div>
@@ -998,7 +1004,7 @@ sausage gravy &amp;amp; biscuit<br>
 																<td align="center" style="color: #00accc; font-size: 16px; font-family: Lato, Calibri, sans-serif; line-height: 22px;" class="blue_color">
 																	<!-- ======= section text ====== -->
 																	<div class="editable_text" style="line-height: 22px">
-																			<span class="text_container">Mudd</span>
+																			<span class="text_container">Lunch</span>
 																		</div>
 																		</td>
 															</tr>
@@ -1008,19 +1014,10 @@ sausage gravy &amp;amp; biscuit<br>
 
 																<div class="editable_text" style="line-height: 22px">
 																	<span class="text_container"><br>
-<!--StartFragment-->grilled corn cobbette<br>
-pasta toss bar<br>
-herbed roasted top round<br>
-roasted rosemary &amp;amp; garlic potatoes<br>
-green peas<br>
-cheddar potato cakes w/maple beets<br>
-brown rice &amp;amp; vegetable stuffed pepper<br>
-julienne carrots, fennel &amp;amp; pearl onions<br>
-swiss chard, fresh<br>
-cooked quinoa<br>
-new england clam chowder<br>
-three mushroom barley<br>
-allergy free chicken<br>
+<!--StartFragment-->
+@foreach($menu2 as $food)
+	<li>{{ $food->foodName }}</li>
+@endforeach
 <!--EndFragment--></span>
 																</div>
 									        				</td>
@@ -1063,7 +1060,7 @@ allergy free chicken<br>
 													<td align="center" style="color: #00accc; font-size: 16px; font-family: Lato, Calibri, sans-serif; line-height: 22px;" class="blue_color">
 														<!-- ======= section text ====== -->
 														<div class="editable_text" style="line-height: 22px">
-																<span class="text_container">Frank</span>
+																<span class="text_container">Dinner</span>
 															</div>
 															</td>
 												</tr>
@@ -1073,15 +1070,10 @@ allergy free chicken<br>
 
 													<div class="editable_text" style="line-height: 22px">
 														<span class="text_container"><br>
-<!--StartFragment-->cheese pizza - slice<br>
-pepperoni pizza<br>
-tomato bruschetta flatbread pizza<br>
-sicilian with sausage and mushrooms<br>
-apple dessert pizza<br>
-classic cheeseburger<br>
-grilled chicken breast<br>
-gardenburger<br>
-french&nbsp; fries<br>
+<!--StartFragment-->
+@foreach($menu2 as $food)
+	<li>{{ $food->foodName }}</li>
+@endforeach
 <!--EndFragment--></span>
 													</div>
 						        				</td>

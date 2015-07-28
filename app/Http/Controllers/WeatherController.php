@@ -33,16 +33,19 @@ class WeatherController extends Controller
         else {
           $current = -1;
         }
-        echo $i;
         $date = Carbon::createFromTimeStamp($weather->daily->data[$i]->time)->toDateTimeString();
         $dateId = substr($date, 0, 10);
         $id = DB::table('email_articles')->where('post_date', $dateId)->value('article_id');
         $icon = $weather->daily->data[$i]->icon;
+
+        if (strpos($icon,'night') !== false) {
+          $icon = 'clear-day';
+        }
         $max = $weather->daily->data[$i]->temperatureMax;
         $min = $weather->daily->data[$i]->temperatureMin;
         $sunset = Carbon::createFromTimeStamp($weather->daily->data[$i]->sunsetTime)->toDateTimeString();
         $sunrise =  Carbon::createFromTimeStamp($weather->daily->data[$i]->sunriseTime)->toDateTimeString();
-
+        echo strpos($icon, 'night');
         if (Weather::where('article_id', '=', $id)->exists()) {
           DB::table('weather')
             ->where('article_id', $id)

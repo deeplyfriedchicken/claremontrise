@@ -20,6 +20,43 @@ class ArticleController extends Controller {
       });
     }
 
+    public function template() {
+      $date = Carbon::today();
+      $date1 = substr($date->addDays(1), 0, 10);
+      $date2 = substr($date->addDays(1), 0, 10);
+      $date3 = substr(Carbon::today()->addDays(40), 0, 10);
+      $date0 = substr(Carbon::today(), 0, 10);
+
+      $id[0] = DB::table('email_articles')->where('post_date', $date0)->value('article_id');
+      $id[1] = DB::table('email_articles')->where('post_date', '=', $date1)->value('article_id');
+      $id[2] = DB::table('email_articles')->where('post_date', '=', $date2)->value('article_id');
+      $id[3] = DB::table('email_articles')->where('post_date', '=', $date3)->value('article_id');
+
+      $events = DB::select(DB::raw("SELECT * FROM events WHERE article_id >= '$id[0]' AND article_id < '$id[3]' AND type = 'event'"));
+
+      $collegeNews = DB::select(DB::raw("SELECT * FROM events WHERE article_id <= '$id[0]'"));
+
+      $icons = DB::table('icons')->get();
+
+      $menu1 = DB::table('dining_hall_food')->where('store_id', '4')->where('meal', 'breakfast')->get();
+
+      $menu2 = DB::table('dining_hall_food')->where('store_id', '4')->where('meal', 'lunch')->get();
+
+      $menu3 = DB::table('dining_hall_food')->where('store_id', '4')->where('meal', 'dinner')->get();
+
+      $weather = DB::table('weather')->where('article_id', $id[0])->get();
+      $weather2 = DB::table('weather')->where('article_id', $id[1])->get();
+      $weather3 = DB::table('weather')->where('article_id', $id[2])->get();
+
+      $posts = DB::table('posts')->where('article_id', '=', $id[0])->where('article_id', '=', $id[1])->where('article_id', '=', $id[2]);
+
+      $pp = DB::table('sports')->where('college', 'PP')->get();
+
+      $cms = DB::table('sports')->where('college', 'CMS')->get();
+
+      return view('template', ['id' => $id, 'date' => Carbon::today(), 'menu1' => $menu1, 'menu2' => $menu2, 'menu3' => $menu3, 'icons' => $icons, 'collegeNews' => $collegeNews, 'weather' => $weather, 'weather2' => $weather2, 'weather3' => $weather3, 'posts' => $posts, 'events' => $events, 'pp' => $pp, 'cms' => $cms]);
+    }
+
     public function populate() {
       $begin = new \DateTime( '2014-01-01' );
       $end = new \DateTime( '2019-01-01' );
