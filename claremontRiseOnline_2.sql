@@ -228,15 +228,16 @@ DROP TABLE IF EXISTS `food_hours` ;
 
 CREATE TABLE IF NOT EXISTS `food_hours` (
   `hours_id` INT NOT NULL AUTO_INCREMENT ,
-  `store_id` VARCHAR(45) NOT NULL ,
-  `day_of_week` VARCHAR(45) NOT NULL ,
-  `morning_hours` VARCHAR(45) NOT NULL DEFAULT 'empty' ,
-  `afternoon_hours` VARCHAR(45) NOT NULL DEFAULT 'empty' ,
-  `night_hours` VARCHAR(45) NOT NULL DEFAULT 'empty' ,
+  `store_id` INT NOT NULL ,
+  `day_of_week` INT NOT NULL ,
+  `morning_hours` VARCHAR(100) NOT NULL DEFAULT 'empty' ,
+  `afternoon_hours` VARCHAR(100) NOT NULL DEFAULT 'empty' ,
+  `night_hours` VARCHAR(100) NOT NULL DEFAULT 'empty' ,
   `updated_at` DATETIME NOT NULL ,
   `created_at` DATETIME NOT NULL ,
   PRIMARY KEY (`hours_id`)  )
 ENGINE = InnoDB;
+
 
 
 -- -----------------------------------------------------

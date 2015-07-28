@@ -22,7 +22,8 @@ class Kernel extends ConsoleKernel
         \App\Console\Commands\GetWeather::class,
         \App\Console\Commands\CreateArticles::class,
         \App\Console\Commands\GetBuzzFeed::class,
-        \App\Console\Commands\ScrapeMenus::class
+        \App\Console\Commands\ScrapeMenus::class,
+        \App\Console\Commands\GetGifs::class
     ];
     /**
      * Define the application's command schedule.
@@ -35,20 +36,22 @@ class Kernel extends ConsoleKernel
         $schedule->command('inspire')
                  ->hourly();
         $schedule->command('cmc:scrape')
-                  ->dailyAt('12:10');
+                  ->dailyAt('00:10');
         $schedule->command('sports:scrape')
-                  ->dailyAt('12:00');
+                  ->dailyAt('00:00');
         $schedule->command('athspeakers:scrape')
-                  ->dailyAt('12:20');
+                  ->dailyAt('00:20');
         $schedule->command('posts:scrape')
-                  ->dailyAt('12:30');
+                  ->dailyAt('00:30');
         $schedule->command('weather:get')
                   ->cron('* 7,16 * * *');
         $schedule->command('athfood:scrape')
-                  ->dailyAt('12:40');
+                  ->dailyAt('00:40');
         $schedule->command('buzzfeed:get')
                   ->dailyAt('06:00');
         $schedule->command('menu:scrape')
                   ->dailyAt('05:00');
+        $schedule->command('gif:get')
+                  ->dailyAt('12:00');
     }
 }
