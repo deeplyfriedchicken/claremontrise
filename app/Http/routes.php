@@ -61,3 +61,6 @@ Route::get('/buzz', 'BuzzFeedController@getXML');
 Route::get('/hours', 'FoodHoursController@addHours');
 
 Route::get('/icons', 'WeatherController@weatherIcons');
+
+Route::get('/menu', 'MenuController@scrape5CMenu');
+Route::get('/stores', 'StoresController@storeStores');
