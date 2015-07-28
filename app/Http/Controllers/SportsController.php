@@ -28,9 +28,17 @@ class SportsController extends Controller
       $month = trimWhiteSpace($month[0]);
       $month = date_parse($month);
       $month = $month['month'];
-      $crawler->filter('table.calendar')->filter('tr')->each(function ($node) use($month, $year) {
-          $node->filter('td div.calendar-event')->each(function ($node1) use($month, $year) {
+      $countRow = 0;
+      $crawler->filter('table.calendar')->filter('tr')->each(function ($node, $countRow) use($month, $year) {
+          $node->filter('td div.calendar-event')->each(function ($node1) use($month, $year, $countRow) {
+            echo $countRow;
             $day = trimWhiteSpace($node1->parents()->filter('div.calendar-date')->text());
+            if($day < 10 && $countRow > 3) {
+              $month++;
+            }
+            if($day > 20 && $countRow < 1) {
+              $month--;
+            }
             if(strlen($day) < 2) {
               $day = "0".$day; //add 0 if its single digit
             }
@@ -48,6 +56,7 @@ class SportsController extends Controller
               $month = "0".$month; //add 0 if its single digit
             }
             $date = $year."-".$month."-".$day;
+            echo $date;
             $datetime = $date." ".$time;
             $id = DB::table('email_articles')->where('post_date', $date)->value('article_id');
             if (Sports::where('team', '=', $team)->where('opponent', '=', $opponent)->exists()) {
@@ -64,6 +73,7 @@ class SportsController extends Controller
               echo $team." ".$opponent." stored!";
             }
         });
+        $countRow++;
       });
     }
 
@@ -80,9 +90,16 @@ class SportsController extends Controller
       $month = trimWhiteSpace($month[0]);
       $month = date_parse($month);
       $month = $month['month'];
-      $crawler->filter('table')->filter('tr')->each(function ($node) use($month, $year) {
-          $node->filter('td.cal-day div.cal-event')->each(function ($node1) use($month, $year) {
+      $countRow = 0;
+      $crawler->filter('table')->filter('tr')->each(function ($node, $countRow) use($month, $year) {
+          $node->filter('td.cal-day div.cal-event')->each(function ($node1) use($month, $year, $countRow) {
             $day = trimWhiteSpace($node1->parents()->filter('div.cal-date')->text());
+            if($day < 10 && $countRow > 2) {
+              $month++;
+            }
+            if($day > 20 && $countRow < 1) {
+              $month--;
+            }
             if(strlen($day) < 2) {
               $day = "0".$day; //add 0 if its single digit
             }
@@ -120,6 +137,7 @@ class SportsController extends Controller
               echo $team." ".$opponent." stored!";
             }
         });
+        $countRow++;
       });
     }
     /**

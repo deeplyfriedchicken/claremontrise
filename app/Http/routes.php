@@ -35,7 +35,6 @@ Route::get('/template', function() {
   $id[1] = DB::table('email_articles')->where('post_date', '=', $date1)->value('article_id');
   $id[2] = DB::table('email_articles')->where('post_date', '=', $date2)->value('article_id');
   $id[3] = DB::table('email_articles')->where('post_date', '=', $date3)->value('article_id');
-  echo $id[3];
   $events = DB::select(DB::raw("SELECT * FROM events WHERE article_id >= '$id[0]' AND article_id < '$id[3]' AND type = 'event'"));
   $collegeNews = DB::select(DB::raw("SELECT * FROM events WHERE article_id <= '$id[0]'"));
   $weather = DB::table('weather')->where('article_id', $id[0])->get();
