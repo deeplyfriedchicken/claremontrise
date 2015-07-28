@@ -34,17 +34,17 @@ class Kernel extends ConsoleKernel
         $schedule->command('inspire')
                  ->hourly();
         $schedule->command('cmc:scrape')
-                  ->dailyAt('20:10');
+                  ->dailyAt('12:10');
         $schedule->command('sports:scrape')
-                  ->dailyAt('20:00');
+                  ->dailyAt('12:00');
         $schedule->command('athspeakers:scrape')
-                  ->dailyAt('20:20');
+                  ->dailyAt('12:20');
         $schedule->command('posts:scrape')
-                  ->dailyAt('20:30');
+                  ->dailyAt('12:30');
         $schedule->command('weather:get')
                   ->cron('* 7,16 * * *');
         $schedule->command('athfood:scrape')
-                  ->dailyAt('20:40');
+                  ->dailyAt('12:40');
         $schedule->command('buzzfeed:get')
                   ->dailyAt('06:00');
     }
