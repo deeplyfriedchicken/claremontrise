@@ -1761,9 +1761,9 @@ The Coop:&nbsp;7:00AM - 9:00AM, 11:00AM - 1:15PM, 5:00PM - 7:00PM</span></span>
 
 																<div class="editable_text" style="line-height: 22px">
 																	<span class="text_container"><ul>
-	<li>Men's Soccer&nbsp;at UC San Diego - 7PM</li>
-	<li>Women's Soccer vs&nbsp;San Diego Christian - 4PM</li>
-	<li>Women's Volleyball vs&nbsp;New York U. - 11:15AM</li>
+																		@foreach($cms as $game)
+																				<li>{{ $game->team }} <?php if(strpos($game->opponent, 'at ') !== false){}elseif(strpos($game->opponent, 'vs') !== false){}else{ echo "-"; }?> {{ $game->opponent }} - <?php $time = strtotime($game->time_start); echo date('h:i A', $time); ?></li>
+																		@endforeach
 </ul>
 </span>
 																</div>
@@ -1821,9 +1821,9 @@ The Coop:&nbsp;7:00AM - 9:00AM, 11:00AM - 1:15PM, 5:00PM - 7:00PM</span></span>
 
 																<div class="editable_text" style="line-height: 22px">
 																	<span class="text_container"><ul>
-	<li>Women's Cross Country at&nbsp;Occidental - 5:45PM</li>
-	<li>Women's Soccer&nbsp;vs. Master's - 5PM</li>
-	<li>Men's Soccer&nbsp;vs. Colorado Col. - 5PM</li>
+																		@foreach($pp as $game)
+																				<li>{{ $game->team }} <?php if(strpos($game->opponent, 'at ') !== false){}elseif(strpos($game->opponent, 'vs') !== false){}else{ echo "-"; }?> {{ $game->opponent }} - <?php $time = strtotime($game->time_start); echo date('h:i A', $time); ?></li>
+																		@endforeach
 </ul>
 </span>
 																</div>

@@ -40,7 +40,9 @@ Route::get('/template', function() {
   $weather = DB::table('weather')->where('article_id', $id[0])->get();
   $weather2 = DB::table('weather')->where('article_id', $id[1])->get();
   $posts = DB::table('posts')->where('article_id', '=', $id[0])->where('article_id', '=', $id[1])->where('article_id', '=', $id[2]);
-  return view('template', ['id' => $id, 'date' => Carbon\Carbon::today(), 'collegeNews' => $collegeNews, 'weather' => $weather, 'weather2' => $weather2, 'posts' => $posts, 'events' => $events]);
+  $pp = DB::table('sports')->where('college', 'PP')->get();
+  $cms = DB::table('sports')->where('college', 'CMS')->get();
+  return view('template', ['id' => $id, 'date' => Carbon\Carbon::today(), 'collegeNews' => $collegeNews, 'weather' => $weather, 'weather2' => $weather2, 'posts' => $posts, 'events' => $events, 'pp' => $pp, 'cms' => $cms]);
 });
 
 Route::get('/weather', 'WeatherController@getWeather');
