@@ -176,7 +176,7 @@
 										<table border="0" cellpadding="0" cellspacing="0" align="right" style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;" class="container590">
 											<tbody><tr>
 												<td align="center">
-													<table border="0" align="center" width="96" cellpadding="0" cellspacing="0" class="blue_bg" bgcolor="00adcd" style="border-radius: 3px; background-color: rgb(184, 47, 26);">
+													<table border="0" align="center" width="96" cellpadding="0" cellspacing="0" class="blue_bg" bgcolor="00adcd" style="border-radius: 3px; background-color: rgb(0, 82, 133);">
 
 														<tbody><tr><td height="3" style="font-size: 3px; line-height: 3px;">&nbsp;</td></tr>
 
@@ -217,14 +217,14 @@
 
 	<!-- ======= main section ======= -->
 
-	<table border="0" width="100%" cellpadding="0" cellspacing="0" bgcolor="414655" class="blue_bg" style="background-color: rgb(184, 47, 26);">
+	<table border="0" width="100%" cellpadding="0" cellspacing="0" bgcolor="414655" class="blue_bg" style="background-color: rgb(0, 82, 133);">
 
 		<tbody><tr>
 			<td>
 				<table border="0" align="center" width="800" cellpadding="0" cellspacing="0" class="container800">
 					<tbody><tr>
 						<td style="">
-							<table border="0" align="center" width="100%" cellpadding="0" cellspacing="0" class="container590 blue_bg" style="background-color: rgb(184, 47, 26);">
+							<table border="0" align="center" width="100%" cellpadding="0" cellspacing="0" class="container590 blue_bg" style="background-color: rgb(0, 82, 133);">
 
 								<tbody><tr>
 									<td>
@@ -328,7 +328,7 @@
 
 											<tr>
 												<td width="100%" height="300" class="main-bg">
-													<img width="350" src="http://s3.amazonaws.com/giphygifs/media/I1mDA4dGGjbnW/giphy.gif">
+													<img width="350" src="">
 													<img src="https://dl.dropboxusercontent.com/u/48479368/images/PoweredBy_640_Horizontal_Light-Backgrounds_With_Logo.gif" width="150">
 						        				</td>
 											</tr>
@@ -888,7 +888,7 @@ echo date('h:i A', $sunrise); ?></span>
 
 
 
-	<table border="0" width="100%" cellpadding="0" cellspacing="0" bgcolor="00accc" class="blue_bg" style="background-color: rgb(184, 47, 26);">
+	<table border="0" width="100%" cellpadding="0" cellspacing="0" bgcolor="00accc" class="blue_bg" style="background-color: rgb(0, 82, 133);">
 
 		<tbody><tr><td height="40" style="font-size: 40px; line-height: 40px;">&nbsp;</td></tr>
 
@@ -1170,7 +1170,7 @@ The Coop:&nbsp;7:00AM - 9:00AM, 11:00AM - 1:15PM, 5:00PM - 7:00PM</span></span>
 
 	<!-- ======= end section ======= -->
 
-	<table border="0" width="100%" cellpadding="0" cellspacing="0" bgcolor="00accc" class="blue_bg" style="background-color: rgb(184, 47, 26);">
+	<table border="0" width="100%" cellpadding="0" cellspacing="0" bgcolor="00accc" class="blue_bg" style="background-color: rgb(0, 82, 133);">
 
 		<tbody><tr>
 			<td align="center">
@@ -1846,7 +1846,7 @@ The Coop:&nbsp;7:00AM - 9:00AM, 11:00AM - 1:15PM, 5:00PM - 7:00PM</span></span>
 
 
 
-	<table border="0" width="100%" cellpadding="0" cellspacing="0" bgcolor="00accc" class="blue_bg" style="background-color: rgb(184, 47, 26);">
+	<table border="0" width="100%" cellpadding="0" cellspacing="0" bgcolor="00accc" class="blue_bg" style="background-color: rgb(0, 82, 133);">
 
 		<tbody><tr>
 			<td align="center">
@@ -2550,7 +2550,7 @@ The Coop:&nbsp;7:00AM - 9:00AM, 11:00AM - 1:15PM, 5:00PM - 7:00PM</span></span>
 
 
 
-	<table border="0" width="100%" cellpadding="0" cellspacing="0" bgcolor="06adcc" class="blue_bg" style="background-color: rgb(184, 47, 26);">
+	<table border="0" width="100%" cellpadding="0" cellspacing="0" bgcolor="06adcc" class="blue_bg" style="background-color: rgb(0, 82, 133);">
 
 		<tbody><tr><td height="45" style="font-size: 45px; line-height: 45px;">&nbsp;</td></tr>
 

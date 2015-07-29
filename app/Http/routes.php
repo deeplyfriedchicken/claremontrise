@@ -32,7 +32,7 @@ Route::get('/weather', 'WeatherController@getWeather');
 Route::get('/cms', 'SportsController@scrapeCmsSchedule');
 Route::get('/pp', 'SportsController@scrapePPSchedule');
 
-Route::get('/email', 'ArticleController@getAllData');
+Route::get('/email', 'ArticleController@sendEmail');
 
 Route::get('/populate', 'ArticleController@populate');
 
