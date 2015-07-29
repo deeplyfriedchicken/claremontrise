@@ -76,48 +76,51 @@ class WeatherController extends Controller
     {
         $icon = new Icons;
         $icon->name = 'clear-day';
-        $icon->imgUrl = 'https://dl.dropboxusercontent.com/u/48479368/weather/clear-day.svg';
+        $icon->imgUrl = 'https://dl.dropboxusercontent.com/u/48479368/weather/clear-day.png';
         $icon->save();
+        echo "Stored!";
 
         $icon = new Icons;
         $icon->name = 'cloudy';
-        $icon->imgUrl = 'https://dl.dropboxusercontent.com/u/48479368/weather/cloudy.svg';
+        $icon->imgUrl = 'https://dl.dropboxusercontent.com/u/48479368/weather/cloudy.png';
         $icon->save();
+        echo "Stored!";
 
         $icon = new Icons;
         $icon->name = 'fog';
-        $icon->imgUrl = 'https://dl.dropboxusercontent.com/u/48479368/weather/fog.svg';
+        $icon->imgUrl = 'https://dl.dropboxusercontent.com/u/48479368/weather/fog.png';
         $icon->save();
+        echo "Stored!";
 
         $icon = new Icons;
-        $icon->name = 'partly-cloudy';
-        $icon->imgUrl = 'https://dl.dropboxusercontent.com/u/48479368/weather/partly-cloudy.svg';
+        $icon->name = 'partly-cloudy-day';
+        $icon->imgUrl = 'https://dl.dropboxusercontent.com/u/48479368/weather/partly-cloudy.png';
         $icon->save();
-
-        $icon = new Icons;
-        $icon->name = 'rain';
-        $icon->imgUrl = 'https://dl.dropboxusercontent.com/u/48479368/weather/rain.svg';
-        $icon->save();
+        echo "Stored!";
 
         $icon = new Icons;
         $icon->name = 'rain';
-        $icon->imgUrl = 'https://dl.dropboxusercontent.com/u/48479368/weather/wind.svg';
+        $icon->imgUrl = 'https://dl.dropboxusercontent.com/u/48479368/weather/rain.png';
         $icon->save();
+        echo "Stored!";
 
         $icon = new Icons;
-        $icon->name = 'rain';
-        $icon->imgUrl = 'https://dl.dropboxusercontent.com/u/48479368/weather/wind.svg';
+        $icon->name = 'wind';
+        $icon->imgUrl = 'https://dl.dropboxusercontent.com/u/48479368/weather/windy.png';
         $icon->save();
+        echo "Stored!";
 
         $icon = new Icons;
         $icon->name = 'compass';
-        $icon->imgUrl = 'https://dl.dropboxusercontent.com/u/48479368/weather/compass.svg';
+        $icon->imgUrl = 'https://dl.dropboxusercontent.com/u/48479368/weather/compass.png';
         $icon->save();
+        echo "Stored!";
 
         $icon = new Icons;
         $icon->name = 'N/A';
-        $icon->imgUrl = 'https://dl.dropboxusercontent.com/u/48479368/weather/N%3AA.svg';
+        $icon->imgUrl = 'https://dl.dropboxusercontent.com/u/48479368/weather/N%3AA.png';
         $icon->save();
+        echo "Stored!";
     }
 
     /**
