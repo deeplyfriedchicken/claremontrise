@@ -70,11 +70,11 @@ class ArticleController extends Controller {
 
       $icons = DB::table('icons')->get();
 
-      $menu1 = DB::table('dining_hall_food')->where('store_id', '4')->where('meal', 'breakfast')->get();
+      $menu1 = DB::table('dining_hall_food')->where('store_id', '4')->where('meal', 'breakfast')->where('article_id', $id[0])->get();
 
-      $menu2 = DB::table('dining_hall_food')->where('store_id', '4')->where('meal', 'lunch')->get();
+      $menu2 = DB::table('dining_hall_food')->where('store_id', '4')->where('meal', 'lunch')->where('article_id', $id[0])->get();
 
-      $menu3 = DB::table('dining_hall_food')->where('store_id', '4')->where('meal', 'dinner')->get();
+      $menu3 = DB::table('dining_hall_food')->where('store_id', '4')->where('meal', 'dinner')->where('article_id', $id[0])->get();
 
       $weather = DB::table('weather')->where('article_id', $id[0])->get();
       $weather2 = DB::table('weather')->where('article_id', $id[1])->get();

@@ -373,9 +373,9 @@
 												<td align="center">
 													<a href="" style=" border-style: none !important; display: block; border: 0 !important;" class="editable_img"><img src="@foreach($icons as $icon)
 														@if($icon->name == $weather[0]->icon)
-															{{ $icon->imgUrl }}
+														{{ $icon->imgUrl }}
 														@endif
-													@endforeach" style="display: block; width: 54px;" width="54" border="0" alt="feature image" class=""></a>
+														@endforeach" style="display: block; width: 54px;" width="54" border="0" alt="feature image" class=""></a>
 												</td>
 											</tr>
 
