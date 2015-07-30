@@ -284,29 +284,6 @@
 
 																	<tr><td height="50" style="font-size: 50px; line-height: 50px;">&nbsp;</td></tr>
 
-																	<tr>
-																		<td align="center">
-																			<table align="left" border="0" cellpadding="0" cellspacing="0">
-																				<tbody><tr>
-																					<td width="33" align="left" valign="middle">
-																						<img src="http://pickedmail.com/showcase/img/icon.png" style="display: block; width: 23px;" width="23" alt="">
-																					</td>
-																					<td align="left" style="color: rgb(22, 5, 5); font-size: 14px; font-family: Lato, Calibri, sans-serif; font-weight: 700; line-height: 24px;" class="text_color">
-																						<!-- ======= section subtitle ====== -->
-
-																						<div class="editable_text" style="line-height: 24px;">
-																							<span class="text_container">
-
-																        						<a href="" style="text-decoration: none; color: #ffffff;" class="white_color">Bruh</a>
-
-																							</span>
-																						</div>
-																					</td>
-																				</tr>
-																			</tbody></table>
-																		</td>
-																	</tr>
-
 																	<tr><td height="35" style="font-size: 35px; line-height: 35px;">&nbsp;</td></tr>
 
 																</tbody></table>
@@ -328,8 +305,9 @@
 
 											<tr>
 												<td width="100%" height="300" class="main-bg">
-													<img width="350" src="">
-													<img src="https://dl.dropboxusercontent.com/u/48479368/images/PoweredBy_640_Horizontal_Light-Backgrounds_With_Logo.gif" width="150">
+													<img width="350" src="{{ $insta[0]->imgUrl }}">
+													<!-- Head Logo  -->
+													<!-- <img src="https://dl.dropboxusercontent.com/u/48479368/images/PoweredBy_640_Horizontal_Light-Backgrounds_With_Logo.gif" width="150"> -->
 						        				</td>
 											</tr>
 
@@ -1408,7 +1386,13 @@ The Coop:&nbsp;7:00AM - 9:00AM, 11:00AM - 1:15PM, 5:00PM - 7:00PM</span></span>
 										<!-- ======= section text ====== -->
 
 										<div class="editable_text" style="line-height: 22px">
-											<span class="text_container">William Kristol, founder and editor of The Weekly Standard, contributor to ABC News, author, and chief of staff to former U.S. Vice President Qualye, is widely recognized as one of the nation's most insightful political...</span>
+											<span class="text_container">
+												@if($todayAth)
+													{{$todayAth[0]->description}}
+												@else
+													No Speaker today
+												@endif
+											</span>
 										</div>
 			        				</td>
 								</tr>
@@ -1452,7 +1436,7 @@ The Coop:&nbsp;7:00AM - 9:00AM, 11:00AM - 1:15PM, 5:00PM - 7:00PM</span></span>
 								<tbody><tr><td height="15" style="font-size: 15px; line-height: 15px;">&nbsp;</td></tr>
 								<tr>
 									<td align="center" class="section-img">
-										<a href="" style=" border-style: none !important; border: 0 !important;" class="editable_img"><img src="http://rightweb.irc-online.org/images/uploads/bill-kristol-william-kristol.jpg" style="display: block; width: 288px;" width="288" border="0" alt="section image" class=""></a>
+										<a href="" style=" border-style: none !important; border: 0 !important;" class="editable_img"><img src="{{$todayAth[0]->speaker_img}}" style="display: block; width: 288px;" width="288" border="0" alt="section image" class=""></a>
 									</td>
 								</tr>
 							</tbody></table>
@@ -1522,7 +1506,7 @@ The Coop:&nbsp;7:00AM - 9:00AM, 11:00AM - 1:15PM, 5:00PM - 7:00PM</span></span>
 												<!-- ======= feature image 51px width ======= -->
 
 												<td align="center" class="section-img">
-													<a href="" style=" border-style: none !important; display: block; border: 0 !important;" class="editable_img"><img src="http://www.mercersignatureevents.com/event5/images/middleton_main.jpg" style="display: block; width: 180px;" width="180" border="0" alt="service image" class=""></a>
+													<a href="" style=" border-style: none !important; display: block; border: 0 !important;" class="editable_img"><img src="{{ $futureAth[0]->speaker_img }}" style="display: block; width: 180px;" width="180" border="0" alt="service image" class=""></a>
 												</td>
 											</tr>
 
@@ -1536,7 +1520,7 @@ The Coop:&nbsp;7:00AM - 9:00AM, 11:00AM - 1:15PM, 5:00PM - 7:00PM</span></span>
 																<!-- ======= section text ====== -->
 
 																<div class="editable_text" style="line-height: 22px">
-																	<span class="text_container">Peter Middleton</span>
+																	<span class="text_container">{{ $futureAth[0]->speaker }}</span>
 																</div>
 									        				</td>
 														</tr>
@@ -1548,7 +1532,7 @@ The Coop:&nbsp;7:00AM - 9:00AM, 11:00AM - 1:15PM, 5:00PM - 7:00PM</span></span>
 																<!-- ======= section text ====== -->
 
 																<div class="editable_text" style="line-height: 22px">
-																	<span class="text_container">Professor of English at the University...</span>
+																	<span class="text_container">{{ substr($futureAth[0]->description, 0, 100) }}......</span>
 																</div>
 									        				</td>
 														</tr>
@@ -1570,7 +1554,7 @@ The Coop:&nbsp;7:00AM - 9:00AM, 11:00AM - 1:15PM, 5:00PM - 7:00PM</span></span>
 												<!-- ======= feature image 51px width ======= -->
 
 												<td align="center" class="section-img">
-													<a href="" style=" border-style: none !important; display: block; border: 0 !important;" class="editable_img"><img src="http://www.speakers.ca/wp-content/uploads/2012/12/Paul_Henderson-2013-760x427.jpg" style="display: block; width: 180px;" width="180" border="0" alt="service image" class=""></a>
+													<a href="" style=" border-style: none !important; display: block; border: 0 !important;" class="editable_img"><img src="{{ $futureAth[1]->speaker_img }}" style="display: block; width: 180px;" width="180" border="0" alt="service image" class=""></a>
 												</td>
 											</tr>
 
@@ -1586,7 +1570,7 @@ The Coop:&nbsp;7:00AM - 9:00AM, 11:00AM - 1:15PM, 5:00PM - 7:00PM</span></span>
 																<div class="editable_text" style="line-height: 22px">
 																	<span class="text_container">
 
-										        						Paul Henderson
+										        						{{ $futureAth[1]->speaker }}
 
 																	</span>
 																</div>
@@ -1600,7 +1584,7 @@ The Coop:&nbsp;7:00AM - 9:00AM, 11:00AM - 1:15PM, 5:00PM - 7:00PM</span></span>
 																<!-- ======= section text ====== -->
 
 																<div class="editable_text" style="line-height: 22px">
-																	<span class="text_container">Legal analyst, commentator, and former...</span>
+																	<span class="text_container">{{ substr($futureAth[1]->description, 0, 100) }}......</span>
 																</div>
 									        				</td>
 														</tr>
@@ -1625,7 +1609,7 @@ The Coop:&nbsp;7:00AM - 9:00AM, 11:00AM - 1:15PM, 5:00PM - 7:00PM</span></span>
 									<!-- ======= image ======= -->
 
 									<td align="center" class="section-img">
-										<a href="" style=" border-style: none !important; display: block; border: 0 !important;" class="editable_img"><img src="https://www.alumni.hbs.edu/PublishingImages/stories/thumbs/Ayala_Jaime_Augusto_Zobel_de_527x333.jpg" style="display: block; width: 180px;" width="180" border="0" alt="service image" class=""></a>
+										<a href="" style=" border-style: none !important; display: block; border: 0 !important;" class="editable_img"><img src="{{ $futureAth[2]->speaker_img }}" style="display: block; width: 180px;" width="180" border="0" alt="service image" class=""></a>
 									</td>
 								</tr>
 
@@ -1639,7 +1623,7 @@ The Coop:&nbsp;7:00AM - 9:00AM, 11:00AM - 1:15PM, 5:00PM - 7:00PM</span></span>
 													<!-- ======= section text ====== -->
 
 													<div class="editable_text" style="line-height: 22px">
-														<span class="text_container">Jaime Ayala P'16</span>
+														<span class="text_container">{{ $futureAth[2]->speaker }}</span>
 													</div>
 						        				</td>
 											</tr>
@@ -1651,7 +1635,7 @@ The Coop:&nbsp;7:00AM - 9:00AM, 11:00AM - 1:15PM, 5:00PM - 7:00PM</span></span>
 													<!-- ======= section text ====== -->
 
 													<div class="editable_text" style="line-height: 22px">
-														<span class="text_container">Founder and CEO of Hybrid Social Solutions...</span>
+														<span class="text_container">{{ substr($futureAth[2]->description, 0, 100) }}...</span>
 													</div>
 						        				</td>
 											</tr>
@@ -1753,9 +1737,13 @@ The Coop:&nbsp;7:00AM - 9:00AM, 11:00AM - 1:15PM, 5:00PM - 7:00PM</span></span>
 
 																<div class="editable_text" style="line-height: 22px">
 																	<span class="text_container"><ul>
-																		@foreach($cms as $game)
-																				<li>{{ $game->team }} <?php if(strpos($game->opponent, 'at ') !== false){}elseif(strpos($game->opponent, 'vs') !== false){}else{ echo "-"; }?> {{ $game->opponent }} - <?php $time = strtotime($game->time_start); echo date('h:i A', $time); ?></li>
-																		@endforeach
+																		@if($cms)
+																			@foreach($cms as $game)
+																					<li>{{ $game->team }} <?php if(strpos($game->opponent, 'at ') !== false){}elseif(strpos($game->opponent, 'vs') !== false){}else{ echo "-"; }?> {{ $game->opponent }} - <?php $time = strtotime($game->time_start); echo date('h:i A', $time); ?></li>
+																			@endforeach
+																		@else
+																			<li>No Games Today</li>
+																		@endif
 </ul>
 </span>
 																</div>
@@ -1813,9 +1801,13 @@ The Coop:&nbsp;7:00AM - 9:00AM, 11:00AM - 1:15PM, 5:00PM - 7:00PM</span></span>
 
 																<div class="editable_text" style="line-height: 22px">
 																	<span class="text_container"><ul>
-																		@foreach($pp as $game)
-																				<li>{{ $game->team }} <?php if(strpos($game->opponent, 'at ') !== false){}elseif(strpos($game->opponent, 'vs') !== false){}else{ echo "-"; }?> {{ $game->opponent }} - <?php $time = strtotime($game->time_start); echo date('h:i A', $time); ?></li>
-																		@endforeach
+																		@if($pp)
+																			@foreach($pp as $game)
+																					<li>{{ $game->team }} <?php if(strpos($game->opponent, 'at ') !== false){}elseif(strpos($game->opponent, 'vs') !== false){}else{ echo "-"; }?> {{ $game->opponent }} - <?php $time = strtotime($game->time_start); echo date('h:i A', $time); ?></li>
+																			@endforeach
+																		@else
+																			<li>No Games Today</li>
+																		@endif
 </ul>
 </span>
 																</div>

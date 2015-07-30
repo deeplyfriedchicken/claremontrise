@@ -43,9 +43,9 @@ class ArticleController extends Controller {
 
       $posts = DB::table('posts')->where('article_id', '=', $id[0])->where('article_id', '=', $id[1])->where('article_id', '=', $id[2]);
 
-      $pp = DB::table('sports')->where('college', 'PP')->get();
+      $pp = DB::table('sports')->where('college', 'PP')->where('article_id', $id[0])->get();
 
-      $cms = DB::table('sports')->where('college', 'CMS')->get();
+      $cms = DB::table('sports')->where('college', 'CMS')->where('article_id', $id[0])->get();
       Mail::send('template', ['id' => $id, 'date' => Carbon::today(), 'menu1' => $menu1, 'menu2' => $menu2, 'menu3' => $menu3, 'icons' => $icons, 'collegeNews' => $collegeNews, 'weather' => $weather, 'weather2' => $weather2, 'weather3' => $weather3, 'posts' => $posts, 'events' => $events, 'pp' => $pp, 'cms' => $cms], function($message)
       {
         $message->to('kevin.a.cunanan@gmail.com', 'Kevin')->subject('This is a demo!');
@@ -80,16 +80,20 @@ class ArticleController extends Controller {
       $weather2 = DB::table('weather')->where('article_id', $id[1])->get();
       $weather3 = DB::table('weather')->where('article_id', $id[2])->get();
 
-      $posts = DB::table('posts')->where('article_id', '=', $id[0])->where('article_id', '=', $id[1])->where('article_id', '=', $id[2]);
+      $posts = DB::table('posts')->where('article_id', '=', $id[0])->where('article_id', '<=', $id[0])->get();
 
-      $pp = DB::table('sports')->where('college', 'PP')->get();
+      $pp = DB::table('sports')->where('college', 'PP')->where('article_id', $id[0])->get();
 
-      $cms = DB::table('sports')->where('college', 'CMS')->get();
+      $cms = DB::table('sports')->where('college', 'CMS')->where('article_id', $id[0])->get();
 
-      $gif = DB::table('gifs')->where('article_id', $id)->get();
-      var_dump($gif);
+      $ath = DB::select(DB::raw("SELECT * FROM ath WHERE article_id > 387"));
+      $athToday = DB::table('ath')->where('article_id', 387)->get();
 
-      return view('template', ['id' => $id, 'date' => Carbon::today(), 'gif' => $gif, 'menu1' => $menu1, 'menu2' => $menu2, 'menu3' => $menu3, 'icons' => $icons, 'collegeNews' => $collegeNews, 'weather' => $weather, 'weather2' => $weather2, 'weather3' => $weather3, 'posts' => $posts, 'events' => $events, 'pp' => $pp, 'cms' => $cms]);
+      $gif = DB::table('gifs')->where('article_id', $id[0])->get();
+
+      $insta = DB::table('instagrams')->where('article_id', $id[1])->get();
+
+      return view('template', ['id' => $id, 'date' => Carbon::today(), 'insta' => $insta, 'futureAth' => $ath, 'todayAth' => $athToday, 'gif' => $gif, 'menu1' => $menu1, 'menu2' => $menu2, 'menu3' => $menu3, 'icons' => $icons, 'collegeNews' => $collegeNews, 'weather' => $weather, 'weather2' => $weather2, 'weather3' => $weather3, 'posts' => $posts, 'events' => $events, 'pp' => $pp, 'cms' => $cms]);
     }
 
     public function populate() {
