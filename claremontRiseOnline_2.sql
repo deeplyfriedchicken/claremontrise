@@ -318,6 +318,21 @@ CREATE TABLE IF NOT EXISTS `subscriber_choices` (
   PRIMARY KEY (`choices_id`)  )
 ENGINE = InnoDB;
 
+-- -----------------------------------------------------
+-- Table `instagrams`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `instagrams` ;
+
+CREATE TABLE IF NOT EXISTS `instagrams` (
+  `insta_id` INT NOT NULL AUTO_INCREMENT ,
+  `article_id` INT NOT NULL ,
+  `imgUrl` VARCHAR(300) NOT NULL ,
+  `description` VARCHAR(200) NOT NULL ,
+  `created_at` DATETIME NOT NULL ,
+  `updated_at` DATETIME NOT NULL ,
+  PRIMARY KEY (`insta_id`) )
+ENGINE = InnoDB;
+
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;

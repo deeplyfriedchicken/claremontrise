@@ -28,3 +28,4 @@ Route::get('/menu', 'MenuController@scrape5CMenu');
 Route::get('/stores', 'StoresController@storeStores');
 Route::get('/gif', 'GiphyController@getThisWeeksGifs');
 Route::get('/insta', 'InstagramController@getInstagramPhotos');
+Route::get('buzz', 'BuzzFeedController@getXML');

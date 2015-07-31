@@ -23,7 +23,8 @@ class Kernel extends ConsoleKernel
         \App\Console\Commands\CreateArticles::class,
         \App\Console\Commands\GetBuzzFeed::class,
         \App\Console\Commands\ScrapeMenus::class,
-        \App\Console\Commands\GetGifs::class
+        \App\Console\Commands\GetGifs::class,
+        \App\Console\Commands\SendEmails::class
     ];
     /**
      * Define the application's command schedule.
