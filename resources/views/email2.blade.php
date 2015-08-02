@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width" />
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Claremont Rise Issue $id</title>
+<title>Claremont Rise Issue {{ $id }}</title>
 
 </head>
 <style>
@@ -229,6 +229,21 @@
   /* Be sure to place a .clear element after each set of columns, just to be safe */
   .clear { display: block; clear: both; }
 
+  .social {
+    width:0px;
+  }
+  .social img {
+    height: 50px;
+    width: 50px;
+    padding:1px;
+  }
+  .connect tr td {
+    padding:0px;
+  }
+  .connect-title {
+    margin-bottom: 10px;
+  }
+
 
   /* -------------------------------------------
       PHONE
@@ -285,10 +300,6 @@
             <td>
               <h4>Hey, CMC</h4>
               <p class="lead">Here at Claremont Rise we bring you what you're too lazy to check on yourself because, college.</p>
-              <!-- Callout Panel -->
-              <p class="callout">
-                Advertisement goes <a href="#">Here &raquo;</a>
-              </p><!-- /Callout Panel -->
             </td>
           </tr>
         </table>
@@ -335,19 +346,19 @@
             <h6 style="text-align:center;"><span style="color:#f9b200;">The Golden </span><span style="color:#9B2335">Antlers</span></h6>
             <ul style="list-style-type:none;">
               @foreach($ga as $post)
-               <li style="padding-bottom:8px;"><div style="border:2px solid #000; border-radius:4px;"><img src="{{ $post->imgUrl }}" align="left" style="padding-right: 10px;" height=50 /><h6 style="margin:auto; width: 90%; padding: 10px;">{{ $post->title }} - <a href="{{ $post->url }}">Read</a></h6></div></li>
+               <li style="padding-bottom:8px;"><img src="{{ $post->imgUrl }}" align="left" style="padding-right: 10px;" height=50 /><h6 style="margin:auto; width: 90%; padding: 10px;">{{ $post->title }} - <a href="{{ $post->url }}">Read</a></h6></div></li>
               @endforeach
             </ul>
             <h6 style="text-align:center;"><span style="color:#5a5a5c;">The </span><span style="color:#6e0001;">Forum</span></h6>
             <ul style="list-style-type:none;">
               @foreach($forum as $post)
-               <li style="padding-bottom:8px;"><div style="border:2px solid #000; border-radius:4px;"><img src="{{ $post->imgUrl }}" align="left" style="padding-right: 10px;" width=75 /><h6 style="margin:auto; width: 90%; padding: 10px;">{{ $post->title }} - <a href="{{ $post->url }}">Read</a></h6></div></li>
+               <li style="padding-bottom:8px;"><img src="{{ $post->imgUrl }}" align="left" style="padding-right: 10px;" height=50 /><h6 style="margin:auto; width: 90%; padding: 10px;">{{ $post->title }} - <a href="{{ $post->url }}">Read</a></h6></div></li>
               @endforeach
             </ul>
             <h6 style="text-align:center;"><span style="color:#c80000;">Claremont </span><span style="color:#252021">Independent</span></h6>
             <ul style="list-style-type:none;">
               @foreach($independent as $post)
-               <li style="padding-bottom:8px;"><div style="border:2px solid #000; border-radius:4px;"><img src="{{ $post->imgUrl }}" align="left" style="padding-right: 10px;" width=75 /><h6 style="margin:auto; width: 90%; padding: 10px;">{{ $post->title }} - <a href="{{ $post->url }}">Read</a></h6></div></li>
+               <li style="padding-bottom:8px;"><img src="{{ $post->imgUrl }}" align="left" style="padding-right: 10px;" height=50 /><h6 style="margin:auto; width: 90%; padding: 10px;">{{ $post->title }} - <a href="{{ $post->url }}">Read</a></h6></div></li>
               @endforeach
             </ul>
             <!-- <h6 style="text-align:center;"><span style="color:#e32;">BuzzFeed</span></h6>
@@ -378,10 +389,15 @@
               </div>
             @endif
             @if(isset($todayAth[1]))
-            <div>
+            <div style="border-bottom:1px solid; margin-bottom: 15px;">
               <p><span style="font-weight: 700">WHO & WHAT: </span><img align="left" width=110 src="{{ $todayAth[1]->speaker_img }}" style="padding-right:5px;"/>{{ substr($todayAth[1]->description,0,140) }}...</p>
               <p><span style="font-weight: 700">WHEN:</span> {{ $todayAth[1]->event_time }}</p>
             </div>
+
+            <p class="callout">
+              Advertisement goes <a href="#">Here &raquo;</a>
+            </p><!-- /Callout Panel -->
+
             @endif
 						<ul class="sidebar">
 							<li>
@@ -409,8 +425,12 @@
 										<tr>
 											<td>
 
-												<h6 class="">Connect with Us:</h6>
-												<p class=""><a href="#" class="soc-btn fb">Facebook</a> <a href="#" class="soc-btn tw">Twitter</a> <a href="#" class="soc-btn gp">Google+</a></p>
+												<h6 class="connect-title">Connect with Us:</h6>
+												<table class="connect" style="margin-bottom:10px;">
+                          <tr>
+                            <td class="social"><img src="https://dl.dropboxusercontent.com/u/48479368/Social%20Media%20Icons/facebook.png"></td><td class="social"><img src="https://dl.dropboxusercontent.com/u/48479368/Social%20Media%20Icons/twitter.png"></td><td class="social"><img src="https://dl.dropboxusercontent.com/u/48479368/Social%20Media%20Icons/instagram.png"></td><td class="social"><img src="https://dl.dropboxusercontent.com/u/48479368/Social%20Media%20Icons/linkedin.png"></td>
+                          </tr>
+                        </table>
 
 												<h6 class="">Contact Info:</h6>
                 Email: <strong><a href="emailto:hseldon@trantor.com">contact@claremontrise.com</a></strong></p>

@@ -103,7 +103,7 @@ class ArticleController extends Controller {
 
       $insta = DB::table('instagrams')->where('article_id', $id[0])->get();
 
-      return view('email2', ['id' => $id, 'date' => Carbon::today(),
+      return view('email2', ['id' => $id[0], 'date' => Carbon::today(),
       'insta' => $insta,
       'futureAth' => $ath, 'todayAth' => $athToday,
       'gif' => $gif,
