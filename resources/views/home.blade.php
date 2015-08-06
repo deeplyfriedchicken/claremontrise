@@ -4,6 +4,9 @@
 
 @section('style')
   <style>
+    .choose-d {
+      margin-top: 0px;
+    }
   </style>
 @stop
 
@@ -25,8 +28,8 @@
 @stop
 
 @section('button')
-<div class="more-links">
-  <a href="#" data-modal="subscribe" id="subscriber">Subscribe</a>
+<div class="more-links modal-click">
+  <span class="col-lg-8"><input type="email" class="form-control" placeholder="Email"></span><a class="col-lg-4" href="#" data-modal="subscribe" id="subscriber">Subscribe</a>
 </div>
 {{-- <div class="more-links-go">
   {!! Html::link('/login', 'Contributor', array(), false) !!}
@@ -115,9 +118,46 @@
             @endif
             {!! Form::open() !!}
             <div class="form-group">
-              {!! Form::email('email', null, ['class' => 'form-control', 'id' => 'subscribe-email', 'placeholder' => 'Email Address']) !!}
-              {!! Form::text('college', null, ['class' => 'form-control', 'id' => 'contr-college', 'placeholder' => 'College']) !!}
-              {!! Form::submit('Signup', ['class' => 'btn btn-lg btn-default']) !!}
+              <div class="pull-left col-lg-9 col-md-9 col-sm-9">
+                {!! Form::text('name', null, ['class' => 'form-control', 'id' => 'subscribe-email', 'placeholder' => 'Name']) !!}
+                {!! Form::email('email', null, ['class' => 'form-control', 'id' => 'subscribe-email', 'placeholder' => 'Email Address']) !!}
+                {!! Form::text('college', null, ['class' => 'form-control', 'id' => 'contr-college', 'placeholder' => 'College']) !!}
+                {!! Form::text('news', null, ['class' => 'form-control', 'id' => 'contr-college', 'placeholder' => 'Favorite News Source']) !!}
+              </div>
+              <div class="pull-left col-lg-3 col-md-3 col-sm-3">
+                <h3 class="choose-d">Choose a dining hall.</h3>
+                <div>
+                  <label for='cmc'>Collins</label>
+                  {!! Form::radio('menu', 'cmc', ['id' => 'cmc']) !!}
+                </div>
+                <div>
+                  <label for='frank'>Frank</label>
+                  {!! Form::radio('menu', 'frank', ['id' => 'frank']) !!}
+                </div>
+                <div>
+                  <label for='cmc'>Frary</label>
+                  {!! Form::radio('menu', 'frary', ['id' => 'frary']) !!}
+                </div>
+                <div>
+                  <label for='frank'>Scripps</label>
+                  {!! Form::radio('menu', 'scripps', ['id' => 'scripps']) !!}
+                </div>
+                <div>
+                  <label for='cmc'>Mudd</label>
+                  {!! Form::radio('menu', 'mudd', ['id' => 'mudd']) !!}
+                </div>
+                <div>
+                  <label for='frank'>Pitzer</label>
+                  {!! Form::radio('menu', 'pitzer', ['id' => 'pitzer']) !!}
+                </div>
+                <div>
+                  <label for='frank'>Oldenborg</label>
+                  {!! Form::radio('menu', 'oldenborg', ['id' => 'oldenborg']) !!}
+                </div>
+              </div>
+              <div class="col-lg-12 pull-center">
+                {!! Form::submit('Signup', ['class' => 'btn btn-lg btn-default']) !!}
+              </div>
             </div>
             {!! Form:: close() !!}
           </div>

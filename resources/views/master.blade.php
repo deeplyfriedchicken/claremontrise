@@ -20,6 +20,9 @@
   .error {
     text-align: center;
   }
+  .nav-links {
+    padding-top: 20px;
+  }
 </style>
 @yield('style')
 <body>
@@ -32,7 +35,7 @@
 
 	<div class="layout">
 		<div class="container">
-      <span class="pull-right navigate">@yield('navigate')</span>
+      <div class="pull-right nav-links"><span class="modal-click">@yield('plain-link')</span><span class="navigate">@yield('navigate')</span></div>
 			<div class="main">
 				<div class="overlay">
           <div class="pagination-centered">
@@ -136,7 +139,7 @@
         }
 
         // Open modal window on click
-        $('.more-links a').on('click', function(e) {
+        $('.modal-click a').on('click', function(e) {
           var mainInner = $('.overlay'),
             modal = $('#' + $(this).attr('data-modal'));
 
