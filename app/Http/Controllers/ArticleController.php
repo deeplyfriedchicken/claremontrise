@@ -92,9 +92,9 @@ class ArticleController extends Controller {
       $independent = DB::table('posts')->where('article_id', '<=', $id[0])->where('source', 'Claremont Independent')->take(2)->get();
       $buzz = DB::table('posts')->where('article_id', '<=', $id[0])->where('source', 'BuzzFeed')->take(2)->get();
 
-      $pp = DB::table('sports')->where('college', 'PP')->where('article_id', '<=', $id[0]+40)->take(3)->get();
+      $pp = DB::table('sports')->where('college', 'PP')->where('article_id', '>=', $id[0])->get();
 
-      $cms = DB::table('sports')->where('college', 'CMS')->where('article_id', '<=', $id[0]+32)->get();
+      $cms = DB::table('sports')->where('college', 'CMS')->where('article_id', '>=', $id[0])->get();
 
       $ath = DB::select(DB::raw("SELECT * FROM ath WHERE article_id > 387"));
       $athToday = DB::table('ath')->where('article_id', 387)->get();
