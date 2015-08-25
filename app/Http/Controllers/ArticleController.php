@@ -50,10 +50,8 @@ class ArticleController extends Controller {
       $ath = DB::select(DB::raw("SELECT * FROM ath WHERE article_id > 387"));
       $athToday = DB::table('ath')->where('article_id', 387)->get();
 
-      $gif = DB::table('gifs')->where('article_id', $id[0])->get();
-
       $insta = DB::table('instagrams')->where('article_id', $id[1])->get();
-      Mail::send('email2', ['id' => $id, 'date' => Carbon::today(), 'insta' => $insta, 'futureAth' => $ath, 'todayAth' => $athToday, 'gif' => $gif, 'menu1' => $menu1, 'menu2' => $menu2, 'menu3' => $menu3, 'icons' => $icons, 'collegeNews' => $collegeNews, 'weather' => $weather, 'weather2' => $weather2, 'weather3' => $weather3, 'posts' => $posts, 'events' => $events, 'pp' => $pp, 'cms' => $cms], function($message)
+      Mail::send('email2', ['id' => $id, 'date' => Carbon::today(), 'insta' => $insta, 'futureAth' => $ath, 'todayAth' => $athToday,  'menu1' => $menu1, 'menu2' => $menu2, 'menu3' => $menu3, 'icons' => $icons, 'collegeNews' => $collegeNews, 'weather' => $weather, 'weather2' => $weather2, 'weather3' => $weather3, 'posts' => $posts, 'events' => $events, 'pp' => $pp, 'cms' => $cms], function($message)
       {
         $message->to('kevin.a.cunanan@gmail.com', 'Kevin')->subject('This is a demo!');
       });
@@ -99,14 +97,11 @@ class ArticleController extends Controller {
       $ath = DB::select(DB::raw("SELECT * FROM ath WHERE article_id > 387"));
       $athToday = DB::table('ath')->where('article_id', 387)->get();
 
-      $gif = DB::table('gifs')->where('article_id', $id[0])->get();
-
-      $insta = DB::table('instagrams')->where('article_id', $id[0])->get();
+      $insta = DB::table('instagrams')->where('article_id','<', $id[0])->get();
 
       return view('email2', ['id' => $id[0], 'date' => Carbon::today(),
       'insta' => $insta,
       'futureAth' => $ath, 'todayAth' => $athToday,
-      'gif' => $gif,
       'menu1' => $menu1, 'menu2' => $menu2, 'menu3' => $menu3,
       'icons' => $icons,
       'collegeNews' => $collegeNews, 'events' => $events,

@@ -15,6 +15,8 @@ Route::get('/', function () {
 });
 Route::post('/', 'SubscriberController@store');
 
+Route::get('/ath', 'AthenaeumController@scrapeSpeakers');
+
 Route::get('/login', function() {
   return view('login');
 });

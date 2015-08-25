@@ -12,7 +12,13 @@ class CreateStoresTable extends Migration
      */
     public function up()
     {
-        //
+      Schema::create('stores', function (Blueprint $table) {
+        $table->increments('store_id');
+        $table->string('name');
+        $table->string('short_name');
+        $table->string('campus');
+        $table->timestamps();
+      });
     }
 
     /**
@@ -22,6 +28,6 @@ class CreateStoresTable extends Migration
      */
     public function down()
     {
-        //
+      Schema::drop('stores');
     }
 }

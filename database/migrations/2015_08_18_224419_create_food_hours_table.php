@@ -12,7 +12,15 @@ class CreateFoodHoursTable extends Migration
      */
     public function up()
     {
-        //
+      Schema::create('store_hours', function (Blueprint $table) {
+        $table->increments('hours_id');
+        $table->integer('store_id');
+        $table->integer('day_of_week');
+        $table->string('morning_hours')->default('empty');
+        $table->string('afternoon_hours')->default('empty');
+        $table->string('night_hours')->default('empty');
+        $table->timestamps();
+      });
     }
 
     /**
@@ -22,6 +30,6 @@ class CreateFoodHoursTable extends Migration
      */
     public function down()
     {
-        //
+      Schema::drop('store_hours');
     }
 }

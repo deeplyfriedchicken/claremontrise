@@ -311,8 +311,7 @@ DROP TABLE IF EXISTS `subscriber_choices` ;
 CREATE TABLE IF NOT EXISTS `subscriber_choices` (
   `choices_id` INT NOT NULL AUTO_INCREMENT ,
   `subscriber_id` INT NOT NULL ,
-  `section` VARCHAR(200) NOT NULL ,
-  `include?` INT NOT NULL DEFAULT 1 ,
+  `store_id` VARCHAR(200) NOT NULL ,
   `updated_at` DATETIME NOT NULL ,
   `created_at` DATETIME NOT NULL ,
   PRIMARY KEY (`choices_id`)  )

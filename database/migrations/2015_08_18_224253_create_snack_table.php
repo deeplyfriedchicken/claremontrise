@@ -12,7 +12,13 @@ class CreateSnackTable extends Migration
      */
     public function up()
     {
-        //
+      Schema::create('snack', function (Blueprint $table) {
+        $table->increments('snack_id');
+        $table->integer('article_id');
+        $table->string('food_name');
+        $table->string('food_name2');
+        $table->timestamps();
+      });
     }
 
     /**
@@ -22,6 +28,6 @@ class CreateSnackTable extends Migration
      */
     public function down()
     {
-        //
+      Schema::drop('snack');
     }
 }

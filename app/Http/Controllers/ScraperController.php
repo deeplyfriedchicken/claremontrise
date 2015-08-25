@@ -39,6 +39,14 @@ function getDateAthSpeakers($date) {
   $date = [$year, $month, $day];
   return $date;
 }
+function getAthDate2($date) {
+  $timeArray = explode(' ', $date);
+  $month = $timeArray[0];
+  $day = substr($timeArray[1], 0, -1);
+  $year = 2015;
+  $date = [$year, $month, $day];
+  return $date;
+}
 
 function trimWhiteSpace($str) {
   $str = rtrim($str);

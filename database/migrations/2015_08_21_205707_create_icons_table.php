@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDiningHallFoodTable extends Migration
+class CreateIconsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,12 +12,10 @@ class CreateDiningHallFoodTable extends Migration
      */
     public function up()
     {
-      Schema::create('dining_hall_food', function (Blueprint $table) {
-        $table->increments('food_id');
-        $table->integer('store_id');
-        $table->integer('article_id');
-        $table->string('foodName');
-        $table->string('meal');
+      Schema::create('icons', function (Blueprint $table) {
+        $table->increments('icon_id');
+        $table->string('name');
+        $table->string('imgUrl');
         $table->timestamps();
       });
     }
@@ -29,6 +27,6 @@ class CreateDiningHallFoodTable extends Migration
      */
     public function down()
     {
-      Schema::drop('dining_hall_food');
+      Schema::drop('icons');
     }
 }

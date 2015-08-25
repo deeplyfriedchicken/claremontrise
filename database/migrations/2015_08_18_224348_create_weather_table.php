@@ -12,7 +12,17 @@ class CreateWeatherTable extends Migration
      */
     public function up()
     {
-        //
+      Schema::create('weather', function (Blueprint $table) {
+        $table->increments('weather_id');
+        $table->integer('article_id');
+        $table->string('icon');
+        $table->integer('current_temp');
+        $table->integer('max');
+        $table->integer('min');
+        $table->dateTime('sunriseTime');
+        $table->dateTime('sunsetTime');
+        $table->timestamps();
+      });
     }
 
     /**
@@ -22,6 +32,6 @@ class CreateWeatherTable extends Migration
      */
     public function down()
     {
-        //
+      Schema::drop('weather');
     }
 }

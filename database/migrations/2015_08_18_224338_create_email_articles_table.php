@@ -12,7 +12,12 @@ class CreateEmailArticlesTable extends Migration
      */
     public function up()
     {
-        //
+      Schema::create('email_articles', function (Blueprint $table) {
+        $table->increments('article_id');
+        $table->date('post_date');
+        $table->string('file_directory');
+        $table->timestamps();
+      });
     }
 
     /**
@@ -22,6 +27,6 @@ class CreateEmailArticlesTable extends Migration
      */
     public function down()
     {
-        //
+      Schema::drop('email_articles');
     }
 }

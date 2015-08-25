@@ -12,7 +12,18 @@ class CreateSportsTable extends Migration
      */
     public function up()
     {
-        //
+      Schema::create('sports', function (Blueprint $table) {
+        $table->increments('sports_id');
+        $table->integer('article_id');
+        $table->string('college');
+        $table->string('team');
+        $table->string('opponent');
+        $table->string('location');
+        $table->boolean('livestream');
+        $table->integer('start_notify')->default(1);
+        $table->dateTime('time_start');
+        $table->timestamps();
+      });
     }
 
     /**
@@ -22,6 +33,6 @@ class CreateSportsTable extends Migration
      */
     public function down()
     {
-        //
+      Schema::drop('sports');
     }
 }

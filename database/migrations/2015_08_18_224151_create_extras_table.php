@@ -20,7 +20,7 @@ class CreateExtrasTable extends Migration
         $table->binary('image');
         $table->string('college');
         $table->string('organization');
-        $table->integer('start_notify');
+        $table->integer('start_notify')->default(1);
         $table->timestamps();
       });
     }

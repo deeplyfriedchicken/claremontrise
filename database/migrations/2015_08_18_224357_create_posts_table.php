@@ -12,7 +12,18 @@ class CreatePostsTable extends Migration
      */
     public function up()
     {
-        //
+      Schema::create('posts', function (Blueprint $table) {
+        $table->increments('post_id');
+        $table->integer('article_id');
+        $table->string('title');
+        $table->string('author')->default('N/A');
+        $table->string('description')->default('N/A');
+        $table->string('imgUrl')->default('N/A');
+        $table->string('url')->default('N/A');
+        $table->string('source');
+        $table->integer('start_notify');
+        $table->timestamps();
+      });
     }
 
     /**
@@ -22,6 +33,6 @@ class CreatePostsTable extends Migration
      */
     public function down()
     {
-        //
+      Schema::drop('posts');
     }
 }

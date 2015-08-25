@@ -10,5 +10,5 @@ class Instagrams extends Model
 
   protected $primaryKey = 'insta_id';
 
-  protected $fillable = ['article_id', 'imgUrl', 'description', 'updated_at', 'created_at'];
+  protected $fillable = ['article_id', 'imgUrl', 'caption', 'updated_at', 'created_at'];
 }

@@ -12,7 +12,13 @@ class CreateSubscribersTable extends Migration
      */
     public function up()
     {
-        //
+      Schema::create('subscribers', function (Blueprint $table) {
+        $table->increments('subscriber_id');
+        $table->string('email', 150);
+        $table->string('college');
+        $table->boolean('notify');
+        $table->timestamps();
+      });
     }
 
     /**
@@ -22,6 +28,6 @@ class CreateSubscribersTable extends Migration
      */
     public function down()
     {
-        //
+      Schema::drop('subscribers');
     }
 }

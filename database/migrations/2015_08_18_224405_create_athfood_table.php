@@ -12,7 +12,18 @@ class CreateAthfoodTable extends Migration
      */
     public function up()
     {
-        //
+      Schema::create('athfood', function (Blueprint $table) {
+        $table->increments('athfood_id');
+        $table->integer('article_id');
+        $table->integer('ath_id');
+        $table->string('food_1')->default('N/A');
+        $table->string('food_2')->default('N/A');
+        $table->string('food_3')->default('N/A');
+        $table->string('food_4')->default('N/A');
+        $table->string('food_5')->default('N/A');
+        $table->integer('start_notify');
+        $table->timestamps();
+      });
     }
 
     /**
@@ -22,6 +33,6 @@ class CreateAthfoodTable extends Migration
      */
     public function down()
     {
-        //
+      Schema::drop('athfood');
     }
 }

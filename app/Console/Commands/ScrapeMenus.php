@@ -22,7 +22,7 @@ class ScrapeMenus extends Command
      *
      * @var string
      */
-    protected $description = 'Command description.';
+    protected $description = 'Get all menus availale.';
 
     /**
      * Create a new command instance.
@@ -66,7 +66,7 @@ class ScrapeMenus extends Command
             echo "For ".$meal." we have ".$food." at ".$diningHall;
             echo "<br>";
             $count++;
-            $store_id = DB::table('stores')->where('sh_name', $diningHall)->value('store_id');
+            $store_id = DB::table('stores')->where('short_name', $diningHall)->value('store_id');
             $id = DB::table('email_articles')->where('post_date', $date)->value('article_id');
             if (Menu::where('foodName', $food)->where('meal', '=', $meal)->where('article_id', $id)->where('store_id', $store_id)->exists()) {
               echo $food." already exists for ".$meal." on".$date;

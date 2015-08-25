@@ -13,7 +13,8 @@ use App\Http\Controllers\Controller;
 class InstagramController extends Controller
 {
     public function getInstagramPhotos() {
-      $url = env('INSTAGRAM_CMCNEWS_URL');
+      $code = env('INSTAGRAM_ACCESS_TOKEN');
+      $url = 'https://api.instagram.com/v1/users/201125743/media/recent/?access_token=47007620.d6ae493.b71d91953f4e4205a78d0d7427d66b52'.$code; //CMC_NEWS_URL
       $content = file_get_contents($url);
       $json = json_decode($content, true);
       $count = 575;
@@ -27,7 +28,7 @@ class InstagramController extends Controller
             $insta = new Instagrams;
             $insta->article_id = $count;
             $insta->imgUrl = $imgUrl;
-            $insta->description = substr($description, 0, 200);
+            $insta->caption = $description;
             $insta->save();
             echo "<img src=".$imgUrl.">";
             echo "<br>";
